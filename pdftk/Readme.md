@@ -18,11 +18,13 @@ docker.container.new.image --name="pdftk.v01" -v ${PWD}/:/data myregistry/pdftk:
 
 ### create a script
 
+```
 cat <<eof > script
 #!/bin/bash
 date > /data/date.txt
 eof
 chmod +x script
+```
 
 ### start the container
 
