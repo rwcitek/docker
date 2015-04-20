@@ -5,9 +5,9 @@
 task default: %w[pdftk pdfocr] 
 
 task :pdftk do
-	# build pdftk
+  puts 'build pdftk'
 end
 
 task :pdfocr do
-	# build pdfocr
+  puts 'build pdfocr'
 end
