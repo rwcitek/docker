@@ -1,0 +1,8 @@
+Notes.txt - docker projects notes
+# Add new line or section with preceeding <github user id> -
+# E.g. edhowland - this is my first note
+# rwcitek - And this is another line
+
+edhowland- first attemp to launch pdftk container within Ruby. Using ruby 2.2.2 
+       Also thought to use Rake to compile the docker images from 2 Dockerfile . The file ;.done' in pdftk/ and pdfocr/ indicates the build state of the images.
+
