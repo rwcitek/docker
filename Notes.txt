@@ -5,4 +5,7 @@ Notes.txt - docker projects notes
 
 edhowland- first attemp to launch pdftk container within Ruby. Using ruby 2.2.2 
        Also thought to use Rake to compile the docker images from 2 Dockerfile . The file ;.done' in pdftk/ and pdfocr/ indicates the build state of the images.
+edhowland - ### Rakefile
+	If Ruby is installed, run 'rake' in docker root dir to build docker images pdftk and pdfocr from scratch.
+	So far this file does not actually run sudo docker build yet
 
