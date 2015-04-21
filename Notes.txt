@@ -8,4 +8,5 @@ edhowland- first attemp to launch pdftk container within Ruby. Using ruby 2.2.2
 edhowland - ### Rakefile
 	If Ruby is installed, run 'rake' in docker root dir to build docker images pdftk and pdfocr from scratch.
 	So far this file does not actually run sudo docker build yet
-
+edhowland - When using chruby, add 'chruby 2.2.2' to ~/.bashrc
+	This will insure, you have the right Ruby when you login
