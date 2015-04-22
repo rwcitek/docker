@@ -5,7 +5,8 @@ import '../lib/tasks/log.rake'
 task :default => [ :pdfocr ]
 
 task :create_instances do
-  log 'creating pdftk instances'
+  log 'creating pdftk instance'
+  sh 'sudo docker create --name=piper.pdftk edhowland/pdftk:v0.1 date'
   log 'creating pdfocr instance'
 end
 
@@ -15,4 +16,9 @@ end
 
 task :pdfocr => :pdftk do
   log 'Starting pdfocr instance'
+end
+
+task :destroy_instances do
+  log 'Destroying pdftk'
+  sh 'sudo docker rm piper.pdftk'
 end
