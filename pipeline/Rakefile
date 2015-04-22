@@ -8,6 +8,7 @@ task :create_instances do
   log 'creating pdftk instance'
   sh 'sudo docker create --name=piper.pdftk edhowland/pdftk:v0.1 date'
   log 'creating pdfocr instance'
+  sh 'sudo docker create --name=piper.pdfocr edhowland/pdfocr:v0.1 date'
 end
 
 task :pdftk => :create_instances do
@@ -21,4 +22,6 @@ end
 task :destroy_instances do
   log 'Destroying pdftk'
   sh 'sudo docker rm piper.pdftk'
+  sh 'sudo docker rm piper.pdfocr'
+  log 'Destroying pdfocr'
 end
