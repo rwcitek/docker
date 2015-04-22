@@ -1,0 +1,18 @@
+# Pipeline Process Rakefile
+
+import '../lib/tasks/log.rake'
+
+task :default => [ :pdfocr ]
+
+task :create_instances do
+  log 'creating pdftk instances'
+  log 'creating pdfocr instance'
+end
+
+task :pdftk => :create_instances do
+  log 'Starting pdftk instance'
+end
+
+task :pdfocr => :pdftk do
+  log 'Starting pdfocr instance'
+end
