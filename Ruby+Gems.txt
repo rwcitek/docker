@@ -1,0 +1,12 @@
+Ruby+Gems.txt - explains the current Ruby and Rubygems setup needed for this toy docker.
+
+Ruby on this host id installed by 'ruby-install' in /opt/rubies
+Use chruby 2.2.2 to select it before running rake.
+
+Logging: The Rakefile make use the log() method. This is suplied by the 'logging' gem:
+  sudo gem install logging
+
+The rake module can be found in ./lib/tasks/log.rake
+
+Versions of Ruby
+This toy Docker example can be run with any version of Ruby from 1.9+ Currently, pdfocr uses 1.9.3 from apt-get. The host Ruby is 2.2. but apt-get 1.9.3 would work as well
