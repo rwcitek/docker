@@ -4,21 +4,22 @@ import '../lib/tasks/log.rake'
 
 
 # formats volumes hash into '-v /host:/dir'
-def vols_to_s vols_hash
+def volumes_to_s vols_hash
   vols_hash.inject('') {|str, arr| str + " -v #{arr[0]}:#{arr[1]}" }
 end
 
 # creates container name from image with mounted vols
 # containers will be named piper.(name)
-def create_container name, image, command,  vols_hashd
+def create_container name, image, command, vols_hash
   sh "sudo docker create --name=piper.#{name} #{volumes_to_s(vols_hash)} #{image} #{command}"
 end
 
 # destroys container name
 # actual name will be piper.name
 def destroy_container name
-  sh "sudo docker r mpiper. #{name}"
+  sh "sudo docker rm piper.#{name}"
 end
+
 # starts container and waits for it to finish
 # actual name of  container wil be piper.name
 def start_container name
