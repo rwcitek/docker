@@ -35,9 +35,8 @@ task :default => [ :pdfocr, :destroy_instances ]
 
 task :create_instances do
   log 'creating pdftk instance'
-  sh 'sudo docker create --name=piper.pdftk -v /home/edhowland/docker/data:/data edhowland/pdftk:v0.1 date > /data/date.out'
+  create_container 'pdftk', 'edhowland/pdftk:v0.1', '/script/run.sh', '/home/edhowland/docker/pipeline/script' => '/script'
   log 'creating pdfocr instance'
-  sh 'sudo docker create --name=piper.pdfocr edhowland/pdfocr:v0.1 date'
 end
 
 task :pdftk => :create_instances do
@@ -51,7 +50,6 @@ end
 
 task :destroy_instances do
   log 'Destroying pdftk'
-  sh 'sudo docker rm piper.pdftk'
-  sh 'sudo docker rm piper.pdfocr'
+  destroy_container 'pdftk'
   log 'Destroying pdfocr'
 end
