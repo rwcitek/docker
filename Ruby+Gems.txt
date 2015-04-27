@@ -10,3 +10,10 @@ The rake module can be found in ./lib/tasks/log.rake
 
 Versions of Ruby
 This toy Docker example can be run with any version of Ruby from 1.9+ Currently, pdfocr uses 1.9.3 from apt-get. The host Ruby is 2.2. but apt-get 1.9.3 would work as well
+== ruby-install and chruby
+On Digital Ocean and Vagrant VMs, I am using 'install-ruby --system ruby 2.2.2' which installs ruby in /opt/rubies
+To get to run for you: run 'chruby 2.2.2' or put that in ~/.bashrc
+
+Here are the Github references:
+https://github.com/postmodern/chruby
+https://github.com/postmodern/ruby-install

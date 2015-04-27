@@ -22,3 +22,10 @@ edhowland - Now the rake orocess is completed. To build both docker images:
 	In your tasks, use log('msg') to output to rake.log
 	Also includes log_warn, log_debug, log_error and log_info. The log method is an alias for log_info. All of the log_* methods also take a parameter of
 	Logging class, so if you want to change log output to somewhere else, you can. If you want to change the default log output from rake.log to something else: "@log =Logging.logger( 'some_file' )"'
+edhowland - Pipeline Rakefile
+	At the present time: pipeline/Rakefile will start the piper.pdftk container from edhowland/pdftk:v0.1 image,
+	and run it, and wait till completes. It mounts an explicit path: /home/edhowland/docker/data and /home/edhowland/docker/pipeline/scripts. It then runs 
+	docker/pipeline/scripts/run/sh which echos 'hello'. You can see this in : sudo docker logs piper.pdftk
+	Notes: This is jest the first attemp with hard coded paths and trivial executations.
+	Will now refactor to make it general
+
