@@ -24,5 +24,9 @@ describe Composable do
   it 'should have .prev == nil' do
     @sudo.prev.must_equal nil
     end
+
+    it 'should return sudo for compose' do
+      @sudo.compose.must_equal 'sudo'
+    end
   end
 end

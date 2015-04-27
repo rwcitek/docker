@@ -11,11 +11,11 @@ module Composable
     @previous
   end
     def +(that)
-    that.prev = this
+    that.prev =self 
   end
 
   def compose
-    @prev.nil? ? '' : @prev.compose  + ' ' + this.to_s
+    (@prev.nil? ? '' : prev.compose + ' ') + self.to_s
   end
 
 end
