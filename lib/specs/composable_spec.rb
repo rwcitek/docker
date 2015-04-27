@@ -17,8 +17,12 @@ describe Composable do
     @sudo =Sudo.new
   end
   describe 'compose' do
-    it 'should work for nil prev' do
-    @sudo.compose.must_equal 'sudo'
+    it 'should return sudo for to_s' do
+    @sudo.to_s.must_equal 'sudo'
   end
+
+  it 'should have .prev == nil' do
+    @sudo.prev.must_equal nil
+    end
   end
 end
