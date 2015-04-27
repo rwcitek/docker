@@ -42,7 +42,7 @@ end
 
 task :pdftk => :create_instances do
   log 'Starting pdftk instance'
-  log 'Stopping pdftk'
+  start_container 'pdftk'
 end
 
 task :pdfocr => :pdftk do
