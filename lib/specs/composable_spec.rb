@@ -2,8 +2,8 @@
 # composable_spec.rb - mini spec to test module Composable
 
 require 'minitest/autorun'
-# require '../container/composable.rb'
-require '../container/sudo.rb'
+require '../container/sudo'
+require '../container/docker'
 
 
 describe Composable do
@@ -26,13 +26,6 @@ describe Composable do
 end
 
 
-class Docker
-  include Composable
-
-  def to_s
-    'docker'
-  end
-end
 
 describe 'compose two objects' do
   before do
