@@ -1,0 +1,50 @@
+I, [2015-04-22T17:20:48.559197 #3024]  INFO : Logging started
+I, [2015-04-22T17:20:48.559570 #3024]  INFO : creating pdftk instance
+I, [2015-04-22T17:20:48.620105 #3024]  INFO : creating pdfocr instance
+I, [2015-04-22T17:20:48.685655 #3024]  INFO : Starting pdftk instance
+I, [2015-04-22T17:20:48.685956 #3024]  INFO : Starting pdfocr instance
+I, [2015-04-22T17:22:58.718120 #3051]  INFO : Logging started
+I, [2015-04-22T17:22:58.718414 #3051]  INFO : Destroying pdftk
+I, [2015-04-22T17:22:58.793946 #3051]  INFO : Destroying pdfocr
+I, [2015-04-22T19:25:41.822449 #3545]  INFO : Logging started
+I, [2015-04-22T19:25:41.822813 #3545]  INFO : creating pdftk instance
+I, [2015-04-22T19:26:04.844637 #3545]  INFO : creating pdfocr instance
+I, [2015-04-22T19:26:04.882983 #3545]  INFO : Starting pdftk instance
+I, [2015-04-23T19:12:41.876925 #19602]  INFO : Logging started
+I, [2015-04-23T19:12:41.877488 #19602]  INFO : creating pdftk instance
+I, [2015-04-23T19:13:01.755824 #19602]  INFO : creating pdfocr instance
+I, [2015-04-23T19:15:28.664288 #19687]  INFO : Logging started
+I, [2015-04-23T19:15:28.664581 #19687]  INFO : Destroying pdftk
+I, [2015-04-23T19:15:28.728703 #19687]  INFO : Destroying pdfocr
+I, [2015-04-23T20:16:25.493260 #20881]  INFO : Logging started
+I, [2015-04-23T20:16:25.493695 #20881]  INFO : creating pdftk instance
+I, [2015-04-23T20:18:00.443178 #20960]  INFO : Logging started
+I, [2015-04-23T20:18:00.443451 #20960]  INFO : creating pdftk instance
+I, [2015-04-24T17:39:09.107701 #23559]  INFO : Logging started
+I, [2015-04-24T17:39:09.108621 #23559]  INFO : creating pdftk instance
+I, [2015-04-24T17:45:00.118994 #23574]  INFO : Logging started
+I, [2015-04-24T17:45:00.119301 #23574]  INFO : creating pdftk instance
+I, [2015-04-24T17:45:14.113054 #23574]  INFO : creating pdfocr instance
+I, [2015-04-24T17:47:15.004856 #23594]  INFO : Logging started
+I, [2015-04-24T17:47:15.005140 #23594]  INFO : creating pdftk instance
+I, [2015-04-24T17:47:53.055794 #23603]  INFO : Logging started
+I, [2015-04-24T17:47:53.056122 #23603]  INFO : Destroying pdftk
+I, [2015-04-24T17:52:11.314107 #23625]  INFO : Logging started
+I, [2015-04-24T17:52:11.314373 #23625]  INFO : Destroying pdftk
+I, [2015-04-24T17:55:52.876802 #23647]  INFO : Logging started
+I, [2015-04-24T17:55:52.877088 #23647]  INFO : Destroying pdftk
+I, [2015-04-24T18:01:48.053062 #23683]  INFO : Logging started
+I, [2015-04-24T18:01:48.053309 #23683]  INFO : Destroying pdftk
+I, [2015-04-24T18:01:48.094403 #23683]  INFO : Destroying pdfocr
+I, [2015-04-27T12:24:42.216232 #29297]  INFO : Logging started
+I, [2015-04-27T12:24:42.217654 #29297]  INFO : creating pdftk instance
+I, [2015-04-27T12:24:42.292247 #29297]  INFO : creating pdfocr instance
+I, [2015-04-27T12:32:39.396875 #29323]  INFO : Logging started
+I, [2015-04-27T12:32:39.397245 #29323]  INFO : creating pdftk instance
+I, [2015-04-27T12:34:06.592642 #29332]  INFO : Logging started
+I, [2015-04-27T12:34:06.592893 #29332]  INFO : Destroying pdftk
+I, [2015-04-27T12:34:06.622018 #29332]  INFO : Destroying pdfocr
+I, [2015-04-27T12:34:21.127091 #29341]  INFO : Logging started
+I, [2015-04-27T12:34:21.127381 #29341]  INFO : creating pdftk instance
+I, [2015-04-27T12:34:21.169374 #29341]  INFO : creating pdfocr instance
+I, [2015-04-27T12:34:21.169677 #29341]  INFO : Starting pdftk instance
