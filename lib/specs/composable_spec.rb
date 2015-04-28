@@ -30,3 +30,32 @@ describe Composable do
     end
   end
 end
+
+
+class Docker
+  include Composable
+
+  def to_s
+    'docker'
+  end
+end
+
+describe 'compose two objects' do
+  before do
+    @docker = (Sudo.new).+(Docker.new)
+#    @sudo = Sudo.new
+#   @docker = Docker.new
+#  @sudo.+(@docker)
+  end
+
+  it 'should be instance of Docker' do
+    @docker.class.name.must_equal 'Docker'
+  end
+   it 'should return docker for Docker.to_s' do
+    @docker.to_s.must_equal 'docker'
+  end
+
+  it 'should return "sudo docker"' do
+    @docker.compose.must_equal 'sudo docker'
+  end
+end
