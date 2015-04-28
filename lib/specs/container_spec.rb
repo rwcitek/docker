@@ -11,6 +11,6 @@ describe Container do
   end
 
 it 'should return "create --name=piper, image, cmd"' do
-    @container.create.must_equal 'create --name=piper imag ecmd'
+    @container.create.must_equal "create --name='piper' image cmd"
   end
 end
