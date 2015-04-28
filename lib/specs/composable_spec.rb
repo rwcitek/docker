@@ -2,15 +2,9 @@
 # composable_spec.rb - mini spec to test module Composable
 
 require 'minitest/autorun'
-require '../container/composable.rb'
+# require '../container/composable.rb'
+require '../container/sudo.rb'
 
-class Sudo
-  include Composable
-
-  def to_s
-    'sudo'
-  end
-end
 
 describe Composable do
   before do
