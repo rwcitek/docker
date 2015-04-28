@@ -42,10 +42,7 @@ end
 
 describe 'compose two objects' do
   before do
-    @docker = (Sudo.new).+(Docker.new)
-#    @sudo = Sudo.new
-#   @docker = Docker.new
-#  @sudo.+(@docker)
+    @docker = Sudo.new + Docker.new
   end
 
   it 'should be instance of Docker' do
