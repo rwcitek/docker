@@ -1,0 +1,56 @@
+# Pipeline Process Rakefile
+
+import '../lib/tasks/log.rake'
+
+
+# formats volumes hash into '-v /host:/dir'
+def volumes_to_s vols_hash
+  vols_hash.inject('') {|str, arr| str + " -v #{arr[0]}:#{arr[1]}" }
+end
+
+# creates container name from image with mounted vols
+# containers will be named piper.(name)
+def create_container name, image, command, vols_hash
+  sh "sudo docker create --name=piper.#{name} #{volumes_to_s(vols_hash)} #{image} #{command}"
+end
+
+# destroys container name
+# actual name will be piper.name
+def destroy_container name
+  sh "sudo docker rm piper.#{name}"
+end
+
+# starts container and waits for it to finish
+# actual name of  container wil be piper.name
+def start_container name
+  sh "id=`sudo docker start piper.#{name}`; sudo docker wait \$id"
+end
+
+# stops container name
+# actual name of container will be piper.name
+def stop_container name
+  sh "sudo docker stop piper.#{name}"
+end
+
+task :default => [ :pdfocr, :destroy_instances ]
+
+task :create_instances do
+  log 'creating pdftk instance'
+  create_container 'pdftk', 'edhowland/pdftk:v0.1', '/script/run.sh', '/home/edhowland/docker/pipeline/script' => '/script'
+  log 'creating pdfocr instance'
+end
+
+task :pdftk => :create_instances do
+  log 'Starting pdftk instance'
+  start_container 'pdftk'
+end
+
+task :pdfocr => :pdftk do
+  log 'Starting pdfocr instance'
+end
+
+task :destroy_instances do
+  log 'Destroying pdftk'
+  destroy_container 'pdftk'
+  log 'Destroying pdfocr'
+end

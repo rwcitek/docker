@@ -1,0 +1,31 @@
+Notes.txt - docker projects notes
+# Add new line or section with preceeding <github user id> -
+# E.g. edhowland - this is my first note
+# rwcitek - And this is another line
+
+edhowland- first attemp to launch pdftk container within Ruby. Using ruby 2.2.2 
+       Also thought to use Rake to compile the docker images from 2 Dockerfile . The file ;.done' in pdftk/ and pdfocr/ indicates the build state of the images.
+edhowland - ### Rakefile
+	If Ruby is installed, run 'rake' in docker root dir to build docker images pdftk and pdfocr from scratch.
+	So far this file does not actually run sudo docker build yet
+edhowland - When using chruby, add 'chruby 2.2.2' to ~/.bashrc
+	This will insure, you have the right Ruby when you login
+edhowland - Rakefile now properly uses file dependencies and I added a clean task. Next, add the docker command to actually build the image
+	The dependency is on the pdftk/Dockerfile and pdfocr/Dockerfile
+edhowland - Now the rake orocess is completed. To build both docker images:
+	rake clean default
+	# This will remove both semaphore files (*/.done)
+	# and run 'sudo build -t "myregistry/pdf___:v0.1 ." ; which will build the docker images
+	# Note: pdfocr/Dockerfile has been changed to reference pdftk/ . So the Rakefile builds them in order.
+	edhowland - ### Loggin
+	Added ./lib/tasks/log.rake - To use "import './lib/tasks'log.rake'" in any Rakefiles.
+	In your tasks, use log('msg') to output to rake.log
+	Also includes log_warn, log_debug, log_error and log_info. The log method is an alias for log_info. All of the log_* methods also take a parameter of
+	Logging class, so if you want to change log output to somewhere else, you can. If you want to change the default log output from rake.log to something else: "@log =Logging.logger( 'some_file' )"'
+edhowland - Pipeline Rakefile
+	At the present time: pipeline/Rakefile will start the piper.pdftk container from edhowland/pdftk:v0.1 image,
+	and run it, and wait till completes. It mounts an explicit path: /home/edhowland/docker/data and /home/edhowland/docker/pipeline/scripts. It then runs 
+	docker/pipeline/scripts/run/sh which echos 'hello'. You can see this in : sudo docker logs piper.pdftk
+	Notes: This is jest the first attemp with hard coded paths and trivial executations.
+	Will now refactor to make it general
+
