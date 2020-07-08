@@ -34,8 +34,11 @@ free -tm                             # RAM
 # Service
 For example, a web server
 ```bash
-docker run --name mynginx1 -p 80:80 -d nginx
+docker run --name nginx -p 80:80 -d nginx
+
+elinks http://127.0.0.1/
 ```
+
 
 # Single command
 ```bash
@@ -115,7 +118,7 @@ curl -s 'https://api.ipify.org?format=json' ; echo
 # install software
 apt-get update
 apt-get install -y man-db vim tree less net-tools elinks tidy procps \
-   nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq
+   nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
 # try again
 ping -c 1 google.com
 curl -v -s 'https://api.ipify.org?format=json' ; echo
