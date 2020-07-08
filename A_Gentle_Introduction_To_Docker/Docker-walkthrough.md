@@ -300,8 +300,23 @@ Options:
 
 # Building an image with a Dockerfile
 A Dockerfile is a collection of commands used to build an image
+```
+# this doesn't work
+docker run --rm -it ubuntu curl -L -s -I google.com
+``
+``
+cat <<'eof' > Dockerfile
+FROM ubuntu:18.04
 
+RUN apt-get update && \
+    apt-get install -y man-db vim tree less net-tools elinks tidy procps \
+            nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
+eof
 
+docker build --tag nettools .
+
+docker run --rm -it nettools curl -L -s -I google.com
+```
 
 
 # Best Practices
@@ -312,7 +327,6 @@ DO:
 
 DO NOT:
 - use snapshot images for creating containers that are not for development
-- use DockerHub within the PSJH environment
 - put passwords into your Dockerfile
 - use an ENV file with docker-compose: good idea, poorly implemented
 
