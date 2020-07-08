@@ -218,7 +218,7 @@ my.curl -s localhost | elinks --dump                   # doesn't work
   - Pods
 
 # Docker objects and commands
-[docker flow](https://raw.githubusercontent.com/rwcitek/docker/master/draw.io/Docker.flow.png)
+![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
 
 # What actions can be performed on a container instance?
 - CRUD database like operations
