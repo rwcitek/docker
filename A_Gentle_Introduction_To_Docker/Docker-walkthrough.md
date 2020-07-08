@@ -36,7 +36,6 @@ For example, a web server
 ```bash
 docker run --name mynginx1 -p 80:80 -d nginx
 ```
-http://10.246.141.151
 
 # Single command
 ```bash
