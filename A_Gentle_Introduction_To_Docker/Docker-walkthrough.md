@@ -204,7 +204,7 @@ my.curl -s localhost | elinks --dump                   # doesn't work
 
 
 # Stepping back: Docker objects
-  - Containers
+  - Container Instances
   - Layers
   - Registry
   - Repository
@@ -216,9 +216,9 @@ my.curl -s localhost | elinks --dump                   # doesn't work
   - Pods
 
 # Docker objects and commands
-[[https://github.com/pdxmolab/Software-Engineering-Coordination/blob/master/draw.io/docker/Docker.flow.png]]
+[[https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png]]
 
-# What actions can be performed on a container?
+# What actions can be performed on a container instance?
 - CRUD database like operations
   - **C**reating - run, create - id/sha, name
   - **R**ead/query - inspect
@@ -297,8 +297,10 @@ Options:
 
 
 # Building an image with a Dockerfile
+A Dockerfile is a collection of commands used to build an image
 
---- Joe
+
+
 
 # Best Practices
 DO:
