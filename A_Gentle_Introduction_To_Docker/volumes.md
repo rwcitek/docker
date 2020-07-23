@@ -5,7 +5,7 @@
 | instance | overlay | /var/lib/docker/overlay/ | ethereal |
 | anonymous | volume | /var/lib/docker/volume/ | ethereal/persistent |
 | named | volume | /var/lib/docker/volume/ | persistent |
-| mapped | bind | speciefied on host | ethereal/persistent |
+| mapped | bind | speciefied on host | persistent |
 
 
 ### Examples
