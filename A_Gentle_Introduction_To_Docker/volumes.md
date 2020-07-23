@@ -5,7 +5,7 @@
 | instance | overlay | /var/lib/docker/overlay/ | temporary |
 | anonymous | volume | /var/lib/docker/volume/ | temporary/persistent |
 | named | volume | /var/lib/docker/volume/ | persistent |
-| mapped | bind | speciefied on host | persistent |
+| mapped | bind | specified on host | persistent |
 
 Every container instance is automaticaly created with an instance volume that is based on the Docker image from which it is derived.
 The other flavors have to be explicitly created.
