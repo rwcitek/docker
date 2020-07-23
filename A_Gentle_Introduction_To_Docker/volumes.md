@@ -7,6 +7,8 @@
 | named | volume | /var/lib/docker/volume/ | persistent |
 | mapped | bind | speciefied on host | persistent |
 
+Every container instance is automaticaly created with an instance volume that is based on the Docker image from which it is derived.
+The other flavors have to be explicitly created.
 
 ### Examples
 Create an instance with several volume mounts:
@@ -21,7 +23,23 @@ docker run --rm \
     ubuntu:18.04 \
     sleep 10d &
 ```
-Show mounts:
+
+Show instance volume:
+```
+# volume
+docker container inspect vol_example |
+  jq -rS '.[].GraphDriver.Data.WorkDir' |
+  rev |
+  cut -d/ -f2- |
+  rev | 
+  tee /tmp/volume.instance.list
+
+# contents of volume on host
+cat /tmp/volume.instance.list |
+  xargs -t -n1 sudo ls -l
+```
+
+Show other volumes:
 ```
 # as TSV
 {
@@ -38,11 +56,12 @@ docker container inspect vol_example |
 # as list
 docker container inspect vol_example |
   jq -r '.[].Mounts[].Source' |
-  tee /tmp/mounts.list
+  tee /tmp/volume.others.list
 ```
+
 You can list the contents of the volumes on the host:
 ```
-cat /tmp/mounts.list |
+cat /tmp/volume.others.list |
   xargs -t -n1 sudo ls -ld
 ```
 When the container is removed, most volumes are automatically removed with it.
@@ -53,8 +72,12 @@ docker container stop vol_example
 ```
 List the contents of the volumes on the host again.  Notice that some are missing, but some persist.
 ```
-# list volumes on the host
-cat /tmp/mounts.list |
+# instance volume is gone
+cat /tmp/volume.instance.list |
+  xargs -t -n1 sudo ls -l
+
+# list explicit volumes on the host
+cat /tmp/volume.others.list |
   xargs -t -n1 sudo ls -ld
 
 # volumes that persist
@@ -80,7 +103,7 @@ docker run \
 # list the volumes
 docker container inspect vol_example |
   jq -r '.[].Mounts[].Source' |
-  tee /tmp/mounts.list
+  tee /tmp/volume.others.list
 
 # stop the instance
 docker stop vol_example
@@ -89,7 +112,7 @@ docker stop vol_example
 docker rm vol_example
 
 # list volumes on the host
-cat /tmp/mounts.list |
+cat /tmp/volume.others.list |
   xargs -t -n1 sudo ls -ld
 
 # volumes that persist
@@ -97,4 +120,20 @@ docker volume list
 ```
 Notice that all the volumes are still on the host, include the anonymous ones.
 You can achieve the same effect by using `docker create ...` instead of `docker run ...`
+
+
+## Uses
+There are four main uses for volumes
+1. isolating data
+1. sharing data between the host and containers
+1. sharing data between containers
+1. providing containers access to remote storage
+
+### Isolation
+
+### Host-container sharing
+
+### Between container sharing
+
+### Remote storage
 
