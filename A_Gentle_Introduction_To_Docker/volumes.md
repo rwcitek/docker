@@ -51,8 +51,49 @@ Stop and kill the container:
 ```
 docker container stop vol_example
 ```
-List the contents of the volumes on the host again.  Notice that some are missing.
+List the contents of the volumes on the host again.  Notice that some are missing, but some persist.
 ```
+# list volumes on the host
 cat /tmp/mounts.list |
   xargs -t -n1 sudo ls -ld
+
+# volumes that persist
+docker volume list
 ```
+Notice that the ones that persisted are the named volume and any that were mounted from the host.
+That is, the anonymous volumes were automatically removed.
+
+However, there is a way to create persistent anonymous volumes: don't use the `--rm` option:
+```
+# run the instance
+docker run \
+    -v /:/vmroot \
+    -v /data1 \
+    -v data2 \
+    -v data3:/data3 \
+    -v /data4:/data4 \
+    --name vol_example \
+    ubuntu:18.04 \
+    sleep 10d &
+
+# list the volumes
+docker container inspect vol_example |
+  jq -r '.[].Mounts[].Source' |
+  tee /tmp/mounts.list
+
+# stop the instance
+docker rm vol_example
+
+# remove the instance
+docker rm vol_example
+
+# list volumes on the host
+cat /tmp/mounts.list |
+  xargs -t -n1 sudo ls -ld
+
+# volumes that persist
+docker volume list
+```
+Notice that all the volumes are still on the host, include the anonymous ones.
+You can achieve the same effect by using `docker create ...` instead of `docker run ...`
+
