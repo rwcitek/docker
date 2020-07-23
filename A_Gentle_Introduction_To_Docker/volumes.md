@@ -9,22 +9,48 @@
 
 
 ### Examples
-Create an instance with several volume mounts
+Create an instance with several volume mounts:
 ```
 docker run --rm \
     -v /:/vmroot \
     -v /data1 \
     -v data2 \
     -v data3:/data3 \
-    -v /data:/data4 \
+    -v /data4:/data4 \
     --name vol_example \
     ubuntu:18.04 \
     sleep 10d &
 ```
-Show mounts
+Show mounts:
 ```
+# in TSV
+{
+echo -e 'Instance\tHost\n---\t---'
 docker container inspect vol_example |
-    jq -S '.[].Mounts[] | { Host_source: .Source, Instance_destination: .Destination }'
+  jq -r '.[].Mounts[] | [ .Destination, .Source ] | @tsv' |
+  sort
+} | column -ts$'\t'
+
+# as hash
+docker container inspect vol_example |
+  jq -S '.[].Mounts[] | { Instance_destination: .Destination, Host_source: .Source }'
+
+# as list
+docker container inspect vol_example |
+  jq -r '.[].Mounts[].Source' > /tmp/mounts.list
+cat /tmp/mounts.list |
+  xargs -t -n1 sudo ls -ld
 ```
+You can list the contents of the volumes on the host by specifying the complete path.
 
+When the container is removed, most volumes are automatically removed with it.
 
+Stop and kill the container:
+```
+docker container stop vol_example
+```
+List the contents of the volumes on the host again.  Notice that some are missing.
+```
+cat /tmp/mounts.list |
+  xargs -t -n1 sudo ls -ld
+```
