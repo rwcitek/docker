@@ -37,12 +37,14 @@ docker container inspect vol_example |
 
 # as list
 docker container inspect vol_example |
-  jq -r '.[].Mounts[].Source' > /tmp/mounts.list
+  jq -r '.[].Mounts[].Source' |
+  tee /tmp/mounts.list
+```
+You can list the contents of the volumes on the host:
+```
 cat /tmp/mounts.list |
   xargs -t -n1 sudo ls -ld
 ```
-You can list the contents of the volumes on the host by specifying the complete path.
-
 When the container is removed, most volumes are automatically removed with it.
 
 Stop and kill the container:
