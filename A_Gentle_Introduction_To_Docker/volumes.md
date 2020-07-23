@@ -1,5 +1,7 @@
 # Volumes
 ## Flavors
+Volumes come in four flavors:
+
 | Name | FS Type | FS location | State |
 | --- | --- | --- | --- |
 | instance | overlay | /var/lib/docker/overlay/ | temporary |
