@@ -63,6 +63,7 @@ docker volume list
 Notice that the ones that persisted are the named volume and any that were mounted from the host.
 That is, the anonymous volumes were automatically removed.
 
+### Persistent anonymous volumes
 However, there is a way to create persistent anonymous volumes: don't use the `--rm` option:
 ```
 # run the instance
@@ -82,7 +83,7 @@ docker container inspect vol_example |
   tee /tmp/mounts.list
 
 # stop the instance
-docker rm vol_example
+docker stop vol_example
 
 # remove the instance
 docker rm vol_example
