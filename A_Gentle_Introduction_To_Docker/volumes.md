@@ -23,7 +23,7 @@ docker run --rm \
 ```
 Show mounts:
 ```
-# in TSV
+# as TSV
 {
 echo -e 'Instance\tHost\n---\t---'
 docker container inspect vol_example |
