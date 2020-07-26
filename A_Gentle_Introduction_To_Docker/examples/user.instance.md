@@ -14,7 +14,7 @@ docker create \
 docker start ubuntu.${USER}
 ```
 
-## Configure the my user account
+## Configure my user account
 ```
 docker exec -it ubuntu.${USER} /bin/bash -c "
   fgrep -w $USER /host/etc/passwd >> /etc/passwd 
