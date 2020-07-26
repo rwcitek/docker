@@ -20,7 +20,7 @@ docker exec -it ubuntu.${USER} /bin/bash -c '
     apt-get install -y git less tree vim
 '
 ```
-## Run the container as me
+## Exec into the container as me
 ```
 docker exec -it -u $USER ubuntu.${USER} /bin/bash -l
 ```
