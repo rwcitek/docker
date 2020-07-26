@@ -1,4 +1,4 @@
-# a Docker instance as me
+# A Docker instance as me
 
 ## Create the Docker instance
 ```
