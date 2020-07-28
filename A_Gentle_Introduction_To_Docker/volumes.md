@@ -94,8 +94,8 @@ cat /tmp/volume.others.list |
 # volumes that persist
 docker volume list
 ```
-Notice that the ones that persisted are the named volume and any that were mounted from the host.
-That is, the anonymous volumes were automatically removed.
+Notice that the ones that persisted were the named and the mapped volumes.
+That is, the instance and the anonymous volumes were automatically removed.
 
 ### Persistent anonymous volumes
 However, there is a way to create persistent anonymous volumes: don't use the `--rm` option:
@@ -130,6 +130,7 @@ docker volume list
 ```
 Notice that all the volumes are still on the host, include the anonymous ones.
 You can achieve the same effect by using `docker create ...` instead of `docker run ...`
+It's not clear why one might want a persistent anonymous volume, but they can be created.
 
 
 ## Uses
