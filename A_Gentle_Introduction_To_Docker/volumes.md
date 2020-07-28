@@ -1,4 +1,7 @@
 # Volumes
+Volumes are directories (aka folders), usually on the host, that the Docker container instance can access.
+Remote network shares can also be made available to the Docker container instance.
+
 ## Flavors
 Volumes come in four flavors:
 
@@ -13,18 +16,24 @@ Every container instance is automaticaly created with an instance volume that is
 The other flavors have to be explicitly created.
 
 ### Examples
-Create an instance with several volume mounts:
+Create an instance with each of the volume flavors:
 ```
 docker run --rm \
-    -v /:/vmroot \
-    -v /data1 \
-    -v data2 \
+    -v data1 \
+    -v /tmp/vol/data2 \
     -v data3:/data3 \
     -v /data4:/data4 \
     --name vol_example \
     ubuntu:18.04 \
-    sleep 10d &
+    sleep 1h &
 ```
+`data1` is an anonymous volume and appears at `/data1` within the instance.
+
+`/tmp/vol/data2` is also an anonymous volume and appears at `/tmp/vol/data2` within the instance.
+
+`data3:/data3` is a named volume and appears at `/data3` within the instance.
+
+`/data4:/data4` is a mapped volume and appears at `/data4` within the instance.  If `/data4` does not exist on the host, Docker will create it on the host.
 
 Show instance volume:
 ```
@@ -93,9 +102,8 @@ However, there is a way to create persistent anonymous volumes: don't use the `-
 ```
 # run the instance
 docker run \
-    -v /:/vmroot \
-    -v /data1 \
-    -v data2 \
+    -v data1 \
+    -v /tmp/vol/data2 \
     -v data3:/data3 \
     -v /data4:/data4 \
     --name vol_example \
