@@ -2,7 +2,7 @@
 ## Flavors
 Volumes come in four flavors:
 
-| Name | FS Type | FS location | State |
+| Flavor Name | FS Type | FS location | State |
 | --- | --- | --- | --- |
 | instance | overlay | /var/lib/docker/overlay/ | temporary |
 | anonymous | native ( volume ) | /var/lib/docker/volume/ | temporary/persistent |
