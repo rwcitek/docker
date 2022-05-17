@@ -2,7 +2,7 @@
 
 # Docker!
 ## What is it? 
-![Screwdriver](https://media.qcsupply.com/media/catalog/product/cache/122b61bfb663175d7f1bbb5dbb7f535b/3/5/350679-3_2.jpg)
+![Red Paperclip](https://upload.wikimedia.org/wikipedia/commons/1/1c/One_red_paperclip.jpg)
 
 ## What you can do with it?
 
