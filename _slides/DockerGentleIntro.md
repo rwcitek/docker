@@ -16,15 +16,18 @@ This presentation will show you examples of what it can do.
 ----
 
 ## What you can do with it?
+![Red Paperclip](https://upload.wikimedia.org/wikipedia/commons/1/1c/One_red_paperclip.jpg)
 
+
+[Trade for a house?](https://en.wikipedia.org/wiki/One_red_paperclip)
 ----
 
 ## Preamble
 - Ask lots of questions
 - Don't believe everything I say
-	1. Docker is a fast moving target.  What is true now will likely change
-	2. I misspeak. I confuse left with right, right with left, etc. 
-	3. My environment is likely different than yours.  Versions, OS, systems all matter.
+	1. Docker is a fast moving target.  What is true now will likely change ... soon.
+	2. I misspeak. Left instead of right, up instead of down, etc.
+	3. My environment is likely different than yours.  Versions, OS, platforms all matter.
 - Call me on it when something doesn't sound right.
 
 ---
@@ -62,7 +65,7 @@ elinks http://127.0.0.1/
 
 ## Single command
 ```bash
-docker run hello-world
+docker run --rm hello-world
 ```
 ```bash
 docker run --rm ubuntu date
@@ -82,26 +85,6 @@ docker image list -a      # list all images
 
 ---
 
-## A bit more on interactive environment
-```bash
-docker run --rm -i -t --name demo ubuntu
-^p^q                             # detaches from container instance
-docker container list            # list running containers
-```
-
-- CONTAINER ID
-- NAMES
-
-```bash
-docker container attach demo     # reattach to container
-ps faux
-exit
-docker container list            # list running containers
-```
-
-
----
-
 ## Docker run options
 
 ```bash
@@ -111,7 +94,7 @@ docker run --rm -i -t --name demo ubuntu
 ```
 --rm          # remove the container instance on exit
 -i            # make interactive
--t            # Allocate a pseudo-TTY
+-t            # allocate a pseudo-TTY
 --name        # assign a name to the container instance
 ```
 
@@ -125,20 +108,14 @@ docker --help
 docker run --help
 ```
 
-```
---help        # get help on a command
-```
-
-
 ---
 
 ## Management commands
-"New" way of working with docker.
-Format is **docker {object} {command} {options} {arguments}**
+Syntax is **docker {object} {command} {options} {arguments}**
 
 ```bash
-docker ps -a                   # old way
-docker container list -a       # new way
+docker container exec -it demo date
+docker image list -a
 ```
 
 
@@ -309,15 +286,15 @@ my.curl -s localhost | elinks --dump                   # doesn't work
 
 ---
 
-## Examples:
-- Default: dockerhub
-
+## Examples: dockerhub (default)
 ```
 docker pull ubuntu
+
+docker pull dockerhub.com/ubuntu:latest
 ```
 
 ```
-  registry = dockerhub.om
+  registry = dockerhub.com
 repository = ubuntu
        tag = latest
      image = ubuntu:latest
@@ -326,9 +303,7 @@ repository = ubuntu
 
 ---
 
-#
-
-- Amazon ECR
+## Examples: Amazon ECR
 
 ```
 docker pull 313257557546.dkr.ecr.us-east-1.amazonaws.com/pdxmolab/pdx_ppmp/tools:ppmp-fastqc-0.11.5-1
@@ -381,7 +356,7 @@ docker run --rm -it ubuntu curl -L -s -I google.com
 ``
 ``
 cat <<'eof' > Dockerfile
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 RUN apt-get update && \
     apt-get install -y man-db vim tree less net-tools elinks tidy procps \
