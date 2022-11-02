@@ -35,9 +35,19 @@ This presentation will show you examples of what it can do.
 
 ## What can you do with Docker?
 Top three uses for Docker containers
-- Create a learning, development, troubleshooting virtual machine-like environment
-- Run services, e.g. a web server
-- Run individual commands
+1. Run individual commands
+1. Create a learning, development, troubleshooting virtual machine-like environment
+1. Run services, e.g. a web server
+
+---
+
+## Single command
+```bash
+docker run --rm hello-world
+```
+```bash
+docker run --rm ubuntu date
+```
 
 ---
 
@@ -64,16 +74,6 @@ elinks http://127.0.0.1/
 
 ---
 
-## Single command
-```bash
-docker run --rm hello-world
-```
-```bash
-docker run --rm ubuntu date
-```
-
----
-
 ## Docker environment
 Run these on the host that is running the Docker service
 ```bash
@@ -82,7 +82,6 @@ docker container list -a  # list all containers
 docker image list         # list images
 docker image list -a      # list all images
 ```
-
 
 ---
 
@@ -123,32 +122,50 @@ docker image list -a
 ---
 
 ## A bit more on interactive containers
-Create a network toolbox
+Create a network toolbox - pt1
 
 ```bash
-docker run --rm -i -t --name my-nettools ubuntu
+docker run -i -t --name my-nettools ubuntu /bin/bash
 # doesn't work
 ping -c 1 google.com
 curl -s 'https://api.ipify.org?format=json' ; echo
+```
+
+---
+
+## A bit more on interactive containers
+Create a network toolbox - pt2
+
+```
 # install software
 apt-get update
 apt-get install -y man-db vim tree less net-tools elinks tidy procps \
    nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
+```
+
+---
+
+## A bit more on interactive containers
+Create a network toolbox - pt3
+
+```
 # try again
 ping -c 1 google.com
 curl -v -s 'https://api.ipify.org?format=json' ; echo
 curl -s 'https://api.ipify.org?format=json' | jq -r .ip
 ``` 
 
-Saving your work
+---
+
+## Saving your work
 
 ```bash
-^p^q     # detach
-docker image list                        # list images
-docker commit my-nettools my-net-ubuntu  # save the my-nettools container as an image called my-net-ubuntu
-docker image list                        # list images
-docker container list                    # list running containers
-docker attach my-nettools                # reattach
+docker container list -a                 # list instances
+docker image list -a                     # list images
+docker commit my-nettools my-net-ubuntu  # save instance as image
+docker image list -a                     # list images
+docker container list -a                 # list instances
+docker container exec -it my-nettools /bin/bash   # connect
 exit
 docker container list                    # list running containers
 docker run --rm -it my-net-ubuntu        # create new container instance containing network tools
@@ -176,27 +193,6 @@ Piping standard input into a Docker container: use the `-i` option.
 alias my.jq='docker run --rm -i my-net-ubuntu jq '
 my.curl 'https://api.ipify.org?format=json' | my.jq .
 ```
-
-
----
-
-## Alternative to attach/detach
-
-```bash
-docker create -it --name demo-exec my-net-ubuntu       # create a container instance
-docker start demo-exec                                 # start the container
-docker exec demo-exec date                             # run a command within the running container
-docker exec -it demo-exec /bin/bash                    # exec into the container
-ps faux
-exit
-docker container list                                  # list running containers
-docker stop  demo-exec                                 # stop the container
-docker rm  demo-exec                                   # delete the container
-```
-
-Here we have a running container that we can exec into to run commands, even interactive commands.  That is useful for debugging running containers.
-
-
 
 ---
 
