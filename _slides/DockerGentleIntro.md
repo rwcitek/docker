@@ -1,14 +1,25 @@
-
-
-
+---
+title: Gentle Intro to Docker
+description: Introducing Docker
+theme: black
+---
 
 # Docker!
+
+This presentation will show you examples of what it can do.
+
+----
+
 ## What is it? 
 ![Red Paperclip](https://upload.wikimedia.org/wikipedia/commons/1/1c/One_red_paperclip.jpg)
 
+----
+
 ## What you can do with it?
 
-# Preamble
+----
+
+## Preamble
 - Ask lots of questions
 - Don't believe everything I say
 	1. Docker is a fast moving target.  What is true now will likely change
@@ -16,13 +27,17 @@
 	3. My environment is likely different than yours.  Versions, OS, systems all matter.
 - Call me on it when something doesn't sound right.
 
-# What can you do with Docker?
+---
+
+## What can you do with Docker?
 Top three uses for Docker containers
 - Create a learning, development, troubleshooting virtual machine-like environment
 - Run services, e.g. a web server
 - Run individual commands
 
-# VM-like environment
+---
+
+## VM-like environment
 ```bash
 docker run --rm -i -t ubuntu
 # you get a shell, in this case /bin/bash
@@ -33,7 +48,9 @@ grep proc /proc/cpuinfo | tail -1    # CPUs
 free -tm                             # RAM
 ```
 
-# Service
+---
+
+## Service
 For example, a web server
 ```bash
 docker run --name nginx -p 80:80 -d nginx
@@ -41,8 +58,9 @@ docker run --name nginx -p 80:80 -d nginx
 elinks http://127.0.0.1/
 ```
 
+---
 
-# Single command
+## Single command
 ```bash
 docker run hello-world
 ```
@@ -50,7 +68,9 @@ docker run hello-world
 docker run --rm ubuntu date
 ```
 
-# Docker environment
+---
+
+## Docker environment
 Run these on the host that is running the Docker service
 ```bash
 docker container list     # list running containers
@@ -59,7 +79,10 @@ docker image list         # list images
 docker image list -a      # list all images
 ```
 
-# A bit more on interactive environment
+
+---
+
+## A bit more on interactive environment
 ```bash
 docker run --rm -i -t --name demo ubuntu
 ^p^q                             # detaches from container instance
@@ -76,7 +99,10 @@ exit
 docker container list            # list running containers
 ```
 
-# Docker run options
+
+---
+
+## Docker run options
 
 ```bash
 docker run --rm -i -t --name demo ubuntu
@@ -89,7 +115,10 @@ docker run --rm -i -t --name demo ubuntu
 --name        # assign a name to the container instance
 ```
 
-# More Docker options
+
+---
+
+## More Docker options
 
 ```bash
 docker --help
@@ -100,7 +129,10 @@ docker run --help
 --help        # get help on a command
 ```
 
-# Management commands
+
+---
+
+## Management commands
 "New" way of working with docker.
 Format is **docker {object} {command} {options} {arguments}**
 
@@ -109,7 +141,10 @@ docker ps -a                   # old way
 docker container list -a       # new way
 ```
 
-# A bit more on interactive containers
+
+---
+
+## A bit more on interactive containers
 Create a network toolbox
 
 ```bash
@@ -146,7 +181,10 @@ exit
 Wash, rinse, repeat.  You now have a way to try things out within a container and take a point-in-time snapshot.
 
 
-# A bit more on single commands
+
+---
+
+## A bit more on single commands
 
 ```bash
 docker run --rm my-net-ubuntu curl -s 'https://api.ipify.org?format=json'
@@ -161,7 +199,10 @@ alias my.jq='docker run --rm -i my-net-ubuntu jq '
 my.curl 'https://api.ipify.org?format=json' | my.jq .
 ```
 
-# Alternative to attach/detach
+
+---
+
+## Alternative to attach/detach
 
 ```bash
 docker create -it --name demo-exec my-net-ubuntu       # create a container instance
@@ -178,7 +219,10 @@ docker rm  demo-exec                                   # delete the container
 Here we have a running container that we can exec into to run commands, even interactive commands.  That is useful for debugging running containers.
 
 
-# A bit more on services
+
+---
+
+## A bit more on services
 
 ```bash
 docker container list                                  # list running containers
@@ -196,7 +240,10 @@ curl -s localhost | elinks --dump
 exit
 ```
 
-### Why does this not work?
+
+---
+
+## Why does this not work?
 
 ```bash
 curl -s http://10.246.141.151 | elinks --dump          # works fine
@@ -207,7 +254,10 @@ my.curl -s localhost | elinks --dump                   # doesn't work
 ```
 
 
-# Stepping back: Docker objects
+
+---
+
+## Stepping back: Docker objects
   - Container Instances
   - Layers
   - Registry
@@ -219,10 +269,16 @@ my.curl -s localhost | elinks --dump                   # doesn't work
   - Swarms
   - Pods
 
-# Docker objects and commands
+
+---
+
+## Docker objects and commands
 ![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
 
-# What actions can be performed on a container instance?
+
+---
+
+## What actions can be performed on a container instance?
 - CRUD database like operations
   - **C**reating - run, create - id/sha, name
   - **R**ead/query - inspect
@@ -238,7 +294,10 @@ my.curl -s localhost | elinks --dump                   # doesn't work
   - modify CPU, RAM; launch new container with options on RAM, CPU
  
 
-# How to get an image: Registry, Repository, local cache
+
+---
+
+## How to get an image: Registry, Repository, local cache
 ### Registry, Repository, Tag, Image
 * A Registry is a host that contains a collection of Repositories.
 	* If a Registry is not specified, dockerhub.com is the default
@@ -247,7 +306,10 @@ my.curl -s localhost | elinks --dump                   # doesn't work
 * An Image is specified by the unique combination of a Repository and Tag and is identified by its Image ID.
   * If a Tag is not specified in a pull request, "latest" is the default
 
-Examples:
+
+---
+
+## Examples:
 - Default: dockerhub
 
 ```
@@ -260,6 +322,11 @@ repository = ubuntu
        tag = latest
      image = ubuntu:latest
 ```
+
+
+---
+
+#
 
 - Amazon ECR
 
@@ -276,7 +343,10 @@ repository = pdxmolab/pdx_ppmp/tools
 
 Note that slashes '/' in a repository's name have no semantic meaning.
 
-### Confusing
+
+---
+
+## Confusing
 
 ```
 $ docker container list
@@ -300,7 +370,10 @@ Options:
 ```
 
 
-# Building an image with a Dockerfile
+
+---
+
+## Building an image with a Dockerfile
 A Dockerfile is a collection of commands used to build an image
 ```
 # this doesn't work
@@ -321,7 +394,10 @@ docker run --rm -it nettools curl -L -s -I google.com
 ```
 
 
-# Best Practices
+
+---
+
+## Best Practices
 DO:
 - create snapshots (commit) often while working in an interactive container
 - turn your history from the interactive container into a Dockerfile
@@ -332,11 +408,17 @@ DO NOT:
 - put passwords into your Dockerfile
 - use an ENV file with docker-compose: good idea, poorly implemented
 
-# References
+
+---
+
+## References
 - https://docs.docker.com/get-started/
 
 
-# Future topics
+
+---
+
+## Future topics
 
 - [Containers vs Virtual machines](https://docs.docker.com/get-started#containers-and-virtual-machines)
 
@@ -344,8 +426,6 @@ DO NOT:
 
 - Philosophy
   - [Cattle vs pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/#understanding-pets-and-cattle)
-
-
 
 <hr />
 
