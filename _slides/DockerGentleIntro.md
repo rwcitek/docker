@@ -20,6 +20,7 @@ This presentation will show you examples of what it can do.
 
 
 [Trade for a house?](https://en.wikipedia.org/wiki/One_red_paperclip)
+
 ----
 
 ## Preamble
