@@ -1,0 +1,38 @@
+# Permalinks
+permalink:            pretty
+
+# reveal options
+reveal:
+  slide_separator:    "<hr />"
+  vertical_separator: "<p>~~</p>"
+  notes_separator:    "<p>Notes:</p>"
+  title_slide:        true
+
+# Setup
+title:                Jekyll and Slide
+tagline:              "Markdown slides in Jekyll using reveal.js"
+description:          "A template for creating slide decks using Markdown and <a href='//jekyllrb.com'>Jekyll</a>, using <a href='//github.com/poole/lanyon'>Lanyon</a> by <a href='//twitter.com/mdo'>@mdo</a>."
+url:                  https://rwcitek.github.io/docker
+baseurl:              /docker
+markdown:             kramdown
+kramdown:
+  input:              GFM
+
+collections:
+  slides:
+    output:           true
+    permalink:        /:collection/:title/
+
+# About/contact
+author:
+  name:               Adam Hollett
+  url:                https://twitter.com/admhlt
+  email:              mail@adamhollett.com
+
+# YAML defaults
+defaults:
+  - scope:
+      path: ""
+      type: slides
+    values:
+      layout: slides
