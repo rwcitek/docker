@@ -46,10 +46,17 @@ This presentation will show you examples of what it can do.
 - A container system
 
 ---
+## Use cases
+
+- "Appliance" that generates QR codes
+- Genomics pipeline
+- Conver 10,000 images to TIFF w/metadata
+
+---
 
 ## What can you do with Docker?
 
-Top three uses for Docker containers
+Top three "modes" for Docker containers
 1. Run individual commands
 1. Create a learning, development, troubleshooting virtual machine-like environment
 1. Run services, e.g. a web server
@@ -82,6 +89,20 @@ $ echo 'Hello, world!' |
 
 ---
 
+## Single command
+
+```bash
+$ cat hello-world.qrcode.png |
+  docker run --rm -i rwcitek/barcode-gen \
+  zbarimg -q --nodbus --raw -
+```
+```
+Hello, world!
+
+```
+
+---
+
 ## VM-like environment
 ```bash
 $ docker run --rm -i -t ubuntu
@@ -107,6 +128,13 @@ $ elinks --dump http://127.0.0.1:8080 | head -3
    If you see this page, the nginx web server is successfully installed and
 ...
 ```
+
+---
+
+## Service
+nginx
+
+http://penguin.linux.test:8080/
 
 ---
 
