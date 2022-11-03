@@ -59,7 +59,8 @@ Top three uses for Docker containers
 ## Single command
 ```bash
 $ docker run --rm hello-world
-
+```
+```
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 
@@ -77,19 +78,19 @@ $ echo 'Hello, world!' |
   qrencode --type=PNG --level=H -o - > hello-world.qrcode.png
 ```
 
-
+<img src="../../public/hello-world.qrcode.png" alt="slide" width="400"/>
 
 ---
 
 ## VM-like environment
 ```bash
-docker run --rm -i -t ubuntu
-# you get a shell, in this case /bin/bash
-ls -la /home                         # filesystem
-df -hTPl                             # filesystem
-ps faux                              # process table
-grep proc /proc/cpuinfo | tail -1    # CPUs
-free -tm                             # RAM
+$ docker run --rm -i -t ubuntu
+```
+```
+root@4942f12c4b8d:/# ps faux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  1.1  0.1   4624  3708 pts/0    Ss   19:04   0:00 bash
+root        10  0.0  0.0   7060  1640 pts/0    R+   19:04   0:00 ps faux
 ```
 
 ---
@@ -97,9 +98,14 @@ free -tm                             # RAM
 ## Service
 For example, a web server
 ```bash
-docker run --name nginx -p 80:80 -d nginx
+$ docker run --name nginx -p 8080:80 -d nginx
+$ elinks --dump http://127.0.0.1:8080 | head -3
+```
+```
+                               Welcome to nginx!
 
-elinks http://127.0.0.1/
+   If you see this page, the nginx web server is successfully installed and
+...
 ```
 
 ---
