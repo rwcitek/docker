@@ -33,7 +33,22 @@ This presentation will show you examples of what it can do.
 
 ---
 
+## What is Docker?
+
+![Docker](https://avatars.githubusercontent.com/u/5429470?s=200&v=4)
+
+
+---
+
+## What is Docker?
+
+- Light-weight virtual machine
+- A container system
+
+---
+
 ## What can you do with Docker?
+
 Top three uses for Docker containers
 1. Run individual commands
 1. Create a learning, development, troubleshooting virtual machine-like environment
@@ -44,10 +59,25 @@ Top three uses for Docker containers
 ## Single command
 ```bash
 docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+...
 ```
+---
+
+## Single command
+
 ```bash
-docker run --rm ubuntu date
+echo 'Hello, world!' |
+docker run --rm -i rwcitek/barcode-gen \
+  qrencode --type=PNG --level=H -o - > hello-world.qrcode.png
 ```
+
+
 
 ---
 
