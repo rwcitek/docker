@@ -50,11 +50,11 @@ This presentation will show you examples of what it can do.
 
 - "Appliance" that generates QR codes
 - Genomics pipeline
-- Conver 10,000 images to TIFF w/metadata
+- Convert 10,000 images to TIFF w/metadata
 
 ---
 
-## What can you do with Docker?
+## How can you use Docker?
 
 Top three "modes" for Docker containers
 1. Run individual commands
