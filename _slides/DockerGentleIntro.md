@@ -10,6 +10,16 @@ This presentation will show you examples of what it can do.
 
 ----
 
+## Preamble
+- Ask lots of questions
+- Don't believe everything I say
+	1. Docker is a fast moving target.  What is true now will likely change ... soon.
+	2. I misspeak. Left instead of right, up instead of down, etc.
+	3. My environment is likely different than yours.  Versions, OS, platforms all matter.
+- Call me on it when something doesn't sound right.
+
+----
+
 ## What is it? 
 ![Red Paperclip](https://upload.wikimedia.org/wikipedia/commons/1/1c/One_red_paperclip.jpg)
 
@@ -20,16 +30,6 @@ This presentation will show you examples of what it can do.
 
 
 [Trade for a house?](https://en.wikipedia.org/wiki/One_red_paperclip)
-
-----
-
-## Preamble
-- Ask lots of questions
-- Don't believe everything I say
-	1. Docker is a fast moving target.  What is true now will likely change ... soon.
-	2. I misspeak. Left instead of right, up instead of down, etc.
-	3. My environment is likely different than yours.  Versions, OS, platforms all matter.
-- Call me on it when something doesn't sound right.
 
 ---
 
