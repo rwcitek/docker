@@ -138,163 +138,6 @@ http://penguin.linux.test:8080/
 
 ---
 
-## Docker environment
-Run these on the host that is running the Docker service
-```bash
-docker container list     # list running containers
-docker container list -a  # list all containers
-docker image list         # list images
-docker image list -a      # list all images
-```
-
----
-
-## Docker run options
-
-```bash
-docker run --rm -i -t --name demo ubuntu
-```
-
-```
---rm          # remove the container instance on exit
--i            # make interactive
--t            # allocate a pseudo-TTY
---name        # assign a name to the container instance
-```
-
-
----
-
-## More Docker options
-
-```bash
-docker --help
-docker run --help
-```
-
----
-
-## Management commands
-Syntax is **docker {object} {command} {options} {arguments}**
-
-```bash
-docker container exec -it demo date
-docker image list -a
-```
-
-
----
-
-## A bit more on interactive containers
-Create a network toolbox - pt1
-
-```bash
-docker run -i -t --name my-nettools ubuntu /bin/bash
-# doesn't work
-ping -c 1 google.com
-curl -s 'https://api.ipify.org?format=json' ; echo
-```
-
----
-
-## A bit more on interactive containers
-Create a network toolbox - pt2
-
-```
-# install software
-apt-get update
-apt-get install -y man-db vim tree less net-tools elinks tidy procps \
-   nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
-```
-
----
-
-## A bit more on interactive containers
-Create a network toolbox - pt3
-
-```
-# try again
-ping -c 1 google.com
-curl -v -s 'https://api.ipify.org?format=json' ; echo
-curl -s 'https://api.ipify.org?format=json' | jq -r .ip
-``` 
-
----
-
-## Saving your work
-
-```bash
-docker container list -a                 # list instances
-docker image list -a                     # list images
-docker commit my-nettools my-net-ubuntu  # save instance as image
-docker image list -a                     # list images
-docker container list -a                 # list instances
-docker container exec -it my-nettools /bin/bash   # connect
-exit
-docker container list                    # list running containers
-docker run --rm -it my-net-ubuntu        # create new container instance containing network tools
-curl -s 'https://api.ipify.org?format=json' | jq -r .ip
-exit
-```
-
-Wash, rinse, repeat.  You now have a way to try things out within a container and take a point-in-time snapshot.
-
-
-
----
-
-## A bit more on single commands
-
-```bash
-docker run --rm my-net-ubuntu curl -s 'https://api.ipify.org?format=json'
-alias my.curl='docker run --rm my-net-ubuntu curl -s'
-my.curl 'https://api.ipify.org?format=json'
-```
-
-Piping standard input into a Docker container: use the `-i` option.
-
-```bash
-alias my.jq='docker run --rm -i my-net-ubuntu jq '
-my.curl 'https://api.ipify.org?format=json' | my.jq .
-```
-
----
-
-## A bit more on services
-
-```bash
-docker container list                                  # list running containers
-docker exec -it mynginx1 /bin/bash
-ps faux                                                # doesn't work
-apt-get update                                         # install our favorite software
-apt-get install -y man-db vim tree less net-tools elinks tidy procps \
-   nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq
-ps faux                                                # now it works
-curl -s localhost | elinks --dump
-vi /usr/share/nginx/html/index.html
-kill -1 1
-ps faux
-curl -s localhost | elinks --dump
-exit
-```
-
-
----
-
-## Why does this not work?
-
-```bash
-curl -s http://10.246.141.151 | elinks --dump          # works fine
-my.curl -s http://10.246.141.151 | elinks --dump       # works fine
-curl -s localhost | elinks --dump                      # works fine
-
-my.curl -s localhost | elinks --dump                   # doesn't work
-```
-
-
-
----
-
 ## Stepping back: Docker objects
   - Container Instances
   - Layers
@@ -311,6 +154,7 @@ my.curl -s localhost | elinks --dump                   # doesn't work
 ---
 
 ## Docker objects and commands
+
 ![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
 
 
@@ -332,6 +176,26 @@ my.curl -s localhost | elinks --dump                   # doesn't work
   - modify CPU, RAM; launch new container with options on RAM, CPU
  
 
+---
+
+## Workflow
+
+1. Run an instance as a service
+1. Exec into the instance
+1. Modify the instance
+1. Exit the instance
+1. Commit the instance to an image
+1. Repeat from step 2
+1. Convert command history into a Dockerfile
+1. Test the Dockerfile
+1. Push to registry
+
+
+----
+
+## Workflow
+
+{ Demo }
 
 ---
 
@@ -344,6 +208,10 @@ my.curl -s localhost | elinks --dump                   # doesn't work
 * An Image is specified by the unique combination of a Repository and Tag and is identified by its Image ID.
   * If a Tag is not specified in a pull request, "latest" is the default
 
+---
+## Workflow
+
+![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
 
 ---
 
@@ -382,40 +250,10 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 
 ---
 
-## Confusing
-
-```
-$ docker container list
-CONTAINER ID  IMAGE         COMMAND      CREATED         STATUS        PORTS  NAMES
-c462d4048fc5  my-net-ubuntu "/bin/bash"  45 minutes ago  Up 44 minutes        demo-exec
-```
-
-```
-$ docker image list
-REPOSITORY    TAG     IMAGE ID      CREATED           SIZE
-my-net-ubuntu latest  1ce74ad4077a  About an hour ago 240MB
-```
-
-```
-$ docker pull --help
-Usage:  docker pull [OPTIONS] NAME[:TAG|@DIGEST]
-Pull an image or a repository from a registry
-
-Options:
--a, --all-tags  Download all tagged images in the repository
-```
-
-
-
----
-
 ## Building an image with a Dockerfile
 A Dockerfile is a collection of commands used to build an image
+
 ```
-# this doesn't work
-docker run --rm -it ubuntu curl -L -s -I google.com
-``
-``
 cat <<'eof' > Dockerfile
 FROM ubuntu:22.04
 
@@ -429,7 +267,24 @@ docker build --tag nettools .
 docker run --rm -it nettools curl -L -s -I google.com
 ```
 
+---
+## Who/what uses Docker
 
+- [dsub]
+- [Google CoLab](https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03)
+- [MyBinder](https://github.com/rwcitek/MyBinder.demo/blob/main/Regular.Expressions/wordle.bash.ipynb)
+
+---
+## dsub
+
+How to convert 10,000 image in under 7 months.
+
+[10k images](https://rwcitek.github.io/data.science/slides/data_science/#/2)
+
+---
+## dsub
+
+{ demo }
 
 ---
 
