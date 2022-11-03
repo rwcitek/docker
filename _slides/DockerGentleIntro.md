@@ -58,7 +58,7 @@ Top three uses for Docker containers
 
 ## Single command
 ```bash
-docker run --rm hello-world
+$ docker run --rm hello-world
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
@@ -72,8 +72,8 @@ To generate this message, Docker took the following steps:
 ## Single command
 
 ```bash
-echo 'Hello, world!' |
-docker run --rm -i rwcitek/barcode-gen \
+$ echo 'Hello, world!' |
+  docker run --rm -i rwcitek/barcode-gen \
   qrencode --type=PNG --level=H -o - > hello-world.qrcode.png
 ```
 
