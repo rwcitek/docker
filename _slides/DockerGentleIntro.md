@@ -8,6 +8,8 @@ theme: black
 
 This presentation will show you examples of what it can do.
 
+{[Slides here](https://rwcitek.github.io/docker/slides/DockerGentleIntro/#/)}
+
 ----
 
 ## Preamble
