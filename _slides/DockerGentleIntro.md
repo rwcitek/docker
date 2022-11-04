@@ -161,26 +161,27 @@ http://penguin.linux.test:8080/
 ---
 
 ## What actions can be performed on a container instance?
+
 - CRUD database like operations
   - **C**reating - run, create - id/sha, name
   - **R**ead/query - inspect
-  - **U**pdate - state (pause, stop, start, kill), other properties
+  - **U**pdate - change state (pause, stop, start, kill)
   - **D**elete - rm
-  - commit, save, list, inspect
-- States
-  - stopped
-  - paused
-  - running
-- Cannot do
-  - create container from a container; create image and then create container
-  - modify CPU, RAM; launch new container with options on RAM, CPU
  
+---
+
+## What actions CANNOT be performed on a container instance?
+
+- create container from a container
+  - instead: create image and then create container
+- modify CPU, RAM, Volumes, Network
+  - instead: launch new container with new options
 
 ---
 
 ## Workflow
 
-1. Run an instance as a service
+1. Run an instance as a service ( -d )
 1. Exec into the instance
 1. Modify the instance
 1. Exit the instance
