@@ -14,6 +14,18 @@ This presentation will show you examples of what it can do.
 
 ----
 
+## Roadmap
+- Use cases
+- Common "modes"
+- Docker objects and commands
+- Registry
+- Workflow
+- Best Practices
+- Who uses Docker
+
+
+---
+
 ## Preamble
 - Ask lots of questions
 - Don't believe everything I say
@@ -68,6 +80,8 @@ Top three "modes" for Docker containers
 ---
 
 ## Single command
+Say Hello
+
 ```bash
 $ docker run --rm hello-world
 ```
@@ -83,6 +97,9 @@ To generate this message, Docker took the following steps:
 
 ## Single command
 
+Say hello in a QR code
+
+
 ```bash
 $ echo 'Hello, world!' |
   docker run --rm -i rwcitek/barcode-gen \
@@ -94,6 +111,8 @@ $ echo 'Hello, world!' |
 ---
 
 ## Single command
+
+Decode the QR code
 
 ```bash
 $ cat hello-world.qrcode.png |
@@ -108,6 +127,9 @@ Hello, world!
 ---
 
 ## VM-like environment
+
+Run Ubuntu, Fedora, Slackware, etc.
+
 ```bash
 $ docker run --rm -i -t ubuntu
 ```
@@ -121,7 +143,9 @@ root        10  0.0  0.0   7060  1640 pts/0    R+   19:04   0:00 ps faux
 ---
 
 ## Service
-For example, a web server
+
+For example, a the nginx web server
+
 ```bash
 $ docker run --name nginx -p 8080:80 -d nginx
 $ elinks --dump http://127.0.0.1:8080 | head -3
@@ -136,13 +160,13 @@ $ elinks --dump http://127.0.0.1:8080 | head -3
 ---
 
 ## Service
-nginx
 
-http://penguin.linux.test:8080/
+[http://penguin.linux.test:8080/](http://localhost:8080/)
 
 ---
 
-## Stepping back: Docker objects
+## Objects in a Docker Environment
+
   - Container Instances
   - Layers
   - Registry
@@ -154,13 +178,11 @@ http://penguin.linux.test:8080/
   - Swarms
   - Pods
 
-
 ---
 
 ## Docker objects and commands
 
 ![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
-
 
 ---
 
@@ -214,13 +236,10 @@ http://penguin.linux.test:8080/
   * If a Tag is not specified in a pull request, `:latest` is the default
 
 ---
-## Workflow
 
-![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
+## Example: dockerhub
+DockerHub is the default
 
----
-
-## Examples: dockerhub (default)
 ```
 docker pull ubuntu
 
@@ -236,12 +255,12 @@ repository = ubuntu
 
 ---
 
-## Examples: Amazon ECR
+## Example: Amazon ECR
 
 ```
-docker pull 313257557546.dkr.ecr.us-east-1.amazonaws.com/pdxmolab/pdx_ppmp/tools:ppmp-fastqc-0.11.5-1
+docker pull \
+  313257557546.dkr.ecr.us-east-1.amazonaws.com/pdxmolab/pdx_ppmp/tools:ppmp-fastqc-0.11.5-1
 ```
-
 ```
   registry = 313257557546.dkr.ecr.us-east-1.amazonaws.com
 repository = pdxmolab/pdx_ppmp/tools
@@ -251,7 +270,6 @@ repository = pdxmolab/pdx_ppmp/tools
 
 Note that slashes '/' in a repository's name have no semantic meaning.
 
-
 ---
 
 ## Building an image with a Dockerfile
@@ -260,16 +278,17 @@ A Dockerfile is a collection of commands used to build an image
 ```bash
 cat <<'eof' > Dockerfile
 FROM ubuntu:22.04
-
 RUN apt-get update && \
-    apt-get install -y man-db vim tree less net-tools elinks tidy procps \
-            nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
+    apt-get install -y man-db vim tree less net-tools \
+      elinks tidy procps nmap curl telnet iputils-ping \
+      dnsutils iproute2 traceroute jq git rsync
 COPY Dockerfile /
 eof
 
 docker build --tag nettools .
 
-docker run --rm nettools curl -L -s -I google.com
+docker run --rm nettools \
+  curl -L -s -I google.com
 ```
 ---
 
@@ -277,14 +296,15 @@ docker run --rm nettools curl -L -s -I google.com
 ```bash
 <<'eof' docker build --tag nettools:here-doc -
 FROM ubuntu:22.04
-
 RUN apt-get update && \
-    apt-get install -y man-db vim tree less net-tools elinks tidy procps \
-            nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
+    apt-get install -y man-db vim tree less net-tools \
+      elinks tidy procps nmap curl telnet iputils-ping \
+      dnsutils iproute2 traceroute jq git rsync
 COPY Dockerfile /
 eof
 
-docker run --rm nettools curl -L -s -I google.com
+docker run --rm nettools:here-doc \
+  curl -L -s -I google.com
 ```
 
 ---
@@ -326,6 +346,18 @@ DO NOT:
 - put credentials in your Dockerfile or image
 - use an ENV file with docker-compose:
   - good idea, poorly implemented
+
+---
+
+## Summary
+
+- Use cases
+- Common "modes"
+- Docker objects and commands
+- Registry
+- Workflow
+- Best Practices
+- Who uses Docker
 
 ---
 
