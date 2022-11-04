@@ -1,13 +1,14 @@
 ---
 title: Gentle Intro to Docker
 description: Introducing Docker
-( that link is wrong )
 theme: black
 ---
 
 # Docker!
 
 This presentation will show you examples of what it can do.
+
+![Docker](https://avatars.githubusercontent.com/u/5429470?s=200&v=4)
 
 {[Slides here](https://rwcitek.github.io/docker/slides/DockerGentleIntro/#/)}
 
