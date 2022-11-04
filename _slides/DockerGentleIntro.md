@@ -200,13 +200,13 @@ http://penguin.linux.test:8080/
 ---
 
 ## How to get an image: Registry, Repository, local cache
-### Registry, Repository, Tag, Image
+* Registry > Repository > Tag > Image
 * A Registry is a host that contains a collection of Repositories.
-	* If a Registry is not specified, dockerhub.com is the default
+  * If a Registry is not specified, `dockerhub.com` is the default
 * A Repository contains a collection of tagged images.
 * A Tag is an identifier for an Image.  An Image can have multiple tags. 
 * An Image is specified by the unique combination of a Repository and Tag and is identified by its Image ID.
-  * If a Tag is not specified in a pull request, "latest" is the default
+  * If a Tag is not specified in a pull request, `:latest` is the default
 
 ---
 ## Workflow
@@ -221,7 +221,6 @@ docker pull ubuntu
 
 docker pull dockerhub.com/ubuntu:latest
 ```
-
 ```
   registry = dockerhub.com
 repository = ubuntu
@@ -253,35 +252,55 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 ## Building an image with a Dockerfile
 A Dockerfile is a collection of commands used to build an image
 
-```
+```bash
 cat <<'eof' > Dockerfile
 FROM ubuntu:22.04
 
 RUN apt-get update && \
     apt-get install -y man-db vim tree less net-tools elinks tidy procps \
             nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
+COPY Dockerfile /
 eof
 
 docker build --tag nettools .
 
-docker run --rm -it nettools curl -L -s -I google.com
+docker run --rm nettools curl -L -s -I google.com
+```
+---
+
+## Building an image with an Here-Doc Dockerfile
+```bash
+<<'eof' docker build --tag nettools:here-doc -
+FROM ubuntu:22.04
+
+RUN apt-get update && \
+    apt-get install -y man-db vim tree less net-tools elinks tidy procps \
+            nmap curl telnet iputils-ping dnsutils iproute2 traceroute jq git rsync
+COPY Dockerfile /
+eof
+
+docker run --rm nettools curl -L -s -I google.com
 ```
 
 ---
-## Who/what uses Docker
 
-- [dsub]
+## Who/what uses Docker?
+
+- [dsub](https://github.com/DataBiosphere/dsub)
 - [Google CoLab](https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03)
 - [MyBinder](https://github.com/rwcitek/MyBinder.demo/blob/main/Regular.Expressions/wordle.bash.ipynb)
 
 ---
+
 ## dsub
 
-How to convert 10,000 image in under 7 months.
+## How to convert 10,000 images ...
+... in under 7 months.
 
 [10k images](https://rwcitek.github.io/data.science/slides/data_science/#/2)
 
 ---
+
 ## dsub
 
 { demo }
@@ -294,18 +313,20 @@ DO:
 - turn your history from the interactive container into a Dockerfile
 - pass passwords into containers via run-time options or a mounted volumes
 
-DO NOT:
-- use snapshot images for creating containers that are not for development
-- put passwords into your Dockerfile
-- use an ENV file with docker-compose: good idea, poorly implemented
+---
 
+## Best Practices
+DO NOT:
+- push snapshot images to registry ( build with a Dockerfile )
+- put credentials in your Dockerfile or image
+- use an ENV file with docker-compose:
+  - good idea, poorly implemented
 
 ---
 
 ## References
-- https://docs.docker.com/get-started/
-
-
+- [Official docs](https://docs.docker.com/get-started/)
+- [O'Reilly Learning Lab](https://learning.oreilly.com/topics/docker/)
 
 ---
 
@@ -315,8 +336,11 @@ DO NOT:
 
 - [Networks](https://success.docker.com/article/networking#userdefinedbridgenetworks)
 
+- [Kubernetes](https://kubernetes.io/)
+
 - Philosophy
   - [Cattle vs pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/#understanding-pets-and-cattle)
+
 
 <hr />
 
