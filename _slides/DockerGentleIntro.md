@@ -322,3 +322,7 @@ DO NOT:
 
 - Markdown written with [StackEdit](https://stackedit.io/).
 - Diagrams with [DrawIO](https://www.draw.io/).
+- This presentation in [GitHub Pages](https://github.com/rwcitek/docker/tree/gh-pages)
+- This project repo in [GitHub](https://github.com/rwcitek/docker/blob/gh-pages/_slides/DockerGentleIntro.md)
+
+
