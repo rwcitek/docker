@@ -1,6 +1,6 @@
 ---
 title: Gentle Intro to Docker
-description: Introducing Docker
+description: Introducing Docker< br/>( that link is wrong )
 theme: black
 ---
 
