@@ -216,14 +216,56 @@ $ elinks --dump http://127.0.0.1:8080
 
 <img src="../../public/nginx.png" alt="slide" width="800"/>
 
+---
 
 ---
 
 ## Service
 [http://localhost:8080/](http://penguin.linux.test:8080/)
+500
+<img src="../../public/nginx.png" alt="slide" width="500"/>
+<img src="../../public/nginx.png" alt="slide" width="500"/>
 
-<img src="../../public/nginx.png" alt="slide" width="500"/>
-<img src="../../public/nginx.png" alt="slide" width="500"/>
+
+---
+
+## Service
+[http://localhost:8080/](http://penguin.linux.test:8080/)
+400
+<img src="../../public/nginx.png" alt="slide" width="400"/>
+<img src="../../public/nginx.png" alt="slide" width="400"/>
+
+
+---
+
+## Service
+[http://localhost:8080/](http://penguin.linux.test:8080/)
+300
+<img src="../../public/nginx.png" alt="slide" width="300"/>
+<img src="../../public/nginx.png" alt="slide" width="300"/>
+
+
+---
+
+## Service
+[http://localhost:8080/](http://penguin.linux.test:8080/)
+200
+<img src="../../public/nginx.png" alt="slide" width="200"/>
+<img src="../../public/nginx.png" alt="slide" width="200"/>
+
+
+---
+
+## Service
+[http://localhost:8080/](http://penguin.linux.test:8080/)
+100
+<img src="../../public/nginx.png" alt="slide" width="100"/>
+<img src="../../public/nginx.png" alt="slide" width="100"/>
+
+
+
+
+---
 
 ---
 
