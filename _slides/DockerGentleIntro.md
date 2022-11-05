@@ -97,6 +97,23 @@ following steps:
     image from the Docker Hub.
 ...
 ```
+
+---
+
+## Single command
+
+QR code for this slide deck
+
+```
+$ echo 'https://rwcitek.github.io/docker/slides/DockerGentleIntro/' |
+  docker run --rm -i rwcitek/barcode-gen \
+    qrencode --type=PNG --level=H -o - \
+  > docker.qrcode.png
+
+```
+
+<img src="../../public/docker.qrcode.png" alt="slide" width="300"/>
+
 ---
 
 ## Single command
@@ -129,22 +146,6 @@ $ cat hello-world.qrcode.png |
 Hello, world!
 
 ```
-
----
-
-## Single command
-
-QR code for this slide deck
-
-```
-$ echo 'https://rwcitek.github.io/docker/slides/DockerGentleIntro/' |
-  docker run --rm -i rwcitek/barcode-gen \
-    qrencode --type=PNG --level=H -o - \
-  > docker.qrcode.png
-
-```
-
-<img src="../../public/docker.qrcode.png" alt="slide" width="300"/>
 
 ---
 
