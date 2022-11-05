@@ -369,11 +369,11 @@ docker run --rm nettools:here-doc \
 
 ---
 
-## Configuration Workflow
+## Image Configuration and Build Workflow
 
 1. Run an instance as a service ( -d )
 1. Exec into the instance
-1. Modify the instance
+1. Modify and test within the instance
 1. Exit the instance
 1. Commit the instance to an image
 1. Repeat from step 2
@@ -384,7 +384,7 @@ docker run --rm nettools:here-doc \
 
 ----
 
-## Configuration Workflow
+## Image Configuration and Build Workflow
 
 { Demo }
 
@@ -409,13 +409,14 @@ $ docker container exec -it net-tools /bin/bash
 
 ~~
 
-## Workflow - Modify
+## Workflow - Modify and test
 
 ```
+# ping -c 1 ww.google.com
 # export DEBIAN_FRONTEND=noninteractive
 # apt-get update
 # apt-get install -y iputils-ping
-
+# ping -c 1 ww.google.com
 ```
 
 ~~
@@ -446,9 +447,12 @@ $ docker container commit net-tools net-tools:1
 
 ~~
 
-## Workflow - History to Dockerfile
+## Workflow - History to Dockerfile and Build
 
 ```
+$ docker container exec net-tools \
+    cat /root/.bash_history > history
+
 $ cat Dockerfile
 FROM ubuntu:22.04
 RUN apt-get update && \
@@ -598,6 +602,7 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 DO:
 - create snapshots (commit) often while working in an interactive container
 - turn your history from the interactive container into a Dockerfile
+- copy your Dockerfile into the image
 - pass passwords into containers via run-time options or a mounted volumes
 
 ---
@@ -619,8 +624,8 @@ DO NOT:
 - Docker objects and commands
 - Registry
 - Workflow
-- Best Practices
 - Who uses Docker
+- Best Practices
 
 ---
 
@@ -644,7 +649,9 @@ DO NOT:
   - [Cattle vs pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/#understanding-pets-and-cattle)
 
 
-<hr />
+---
+
+## Acknowledgments
 
 - Markdown initially written with [StackEdit](https://stackedit.io/).
 - Diagrams with [DrawIO](https://www.draw.io/).
