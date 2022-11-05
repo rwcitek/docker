@@ -168,6 +168,8 @@ root@85f5a93206e9:/#
 
 ```
 
+---
+
 ## VM-like environment
 
 ... or Fedora, Slackware, etc.
@@ -221,11 +223,9 @@ $ elinks --dump http://127.0.0.1:8080
 
 <span class="fragment">Resource Isolation</span>
 
----
-
-## Why use Docker?
-
-<img src="https://sd.keepcalms.com/i/keep-calm-what-happens-in-vegas-stays-in-vegas-18.png" alt="vegas" width="300"/>
+<span class="fragment">
+  <img src="https://sd.keepcalms.com/i/keep-calm-what-happens-in-vegas-stays-in-vegas-18.png" alt="vegas" width="400"/>
+</span>
 
 ---
 
@@ -242,6 +242,16 @@ What happens in Docker ...
 - File system
 - Networking
 - Other hardware
+
+---
+
+## Implications
+- more than one environment
+- throw-away environments
+- testing environments; mistakes
+- consistent environments
+- portable
+- ...
 
 ---
 
