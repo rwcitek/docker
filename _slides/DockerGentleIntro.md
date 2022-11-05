@@ -131,6 +131,8 @@ Hello, world!
 
 ```
 
+---
+
 ## Single command
 
 QR code for this slide deck
