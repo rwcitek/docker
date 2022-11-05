@@ -212,50 +212,18 @@ $ elinks --dump http://127.0.0.1:8080
 ---
 
 ## Service
-
-[http://localhost:8080/](http://penguin.linux.test:8080/)
-
-<img src="../../public/nginx.png" alt="slide" width="600"/>
-
----
-
----
-
-## Service
-1000
-[http://localhost:8080/](http://penguin.linux.test:8080/)
-
-<img src="../../public/nginx.png" alt="slide" width="1000"/>
-
----
-
-## Service
-900
-[http://localhost:8080/](http://penguin.linux.test:8080/)
-
-<img src="../../public/nginx.png" alt="slide" width="900"/>
-
----
-
-## Service
-800
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 
 <img src="../../public/nginx.png" alt="slide" width="800"/>
 
+
 ---
 
 ## Service
-700
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 
-<img src="../../public/nginx.png" alt="slide" width="700"/>
-
----
-
-
-
-
+<img src="../../public/nginx.png" alt="slide" width="500"/>
+<img src="../../public/nginx.png" alt="slide" width="500"/>
 
 ---
 
