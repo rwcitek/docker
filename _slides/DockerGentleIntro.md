@@ -231,7 +231,7 @@ $ elinks --dump http://127.0.0.1:8080
 1. Convert command history into a Dockerfile
 1. Test the Dockerfile
 1. Push to registry
-
+1. Clean up
 
 ----
 
@@ -338,6 +338,18 @@ rtt min/avg/max/mdev = 36.781/36.781/36.781/0.000 ms
 $ docker tag net-tools rwcitek/net-tools:example
 $ docker login
 $ docker image push rwcitek/net-tools:example
+
+```
+~~
+
+## Workflow - Clean up
+
+```
+$ docker container stop net-tools 
+$ docker container rm net-tools 
+$ docker image list -a |
+  awk '$2 ~ /net-tools:[0-9]/ {print $1} |
+  xargs docker image rm
 
 ```
 
