@@ -609,8 +609,10 @@ DO:
 
 ## Best Practices
 DO NOT:
-- push snapshot images to registry ( build with a Dockerfile )
+- push snapshot images to registry 
+  - instead: build with a Dockerfile
 - put credentials in your Dockerfile or image
+  - instead: use run-time options or volumes
 - use an ENV file with docker-compose:
   - good idea, poorly implemented
 
