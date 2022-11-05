@@ -343,15 +343,35 @@ $ docker image push rwcitek/net-tools:example
 
 ---
 
-## How to get an image: Registry, Repository, local cache
-* Registry > Repository > Tag > Image
+## How to get an image
 * A Registry is a host that contains a collection of Repositories.
   * If a Registry is not specified, `dockerhub.com` is the default
 * A Repository contains a collection of tagged images.
 * A Tag is an identifier for an Image.  An Image can have multiple tags. 
-* An Image is specified by the unique combination of a Repository and Tag and is identified by its Image ID.
-  * If a Tag is not specified in a pull request, `:latest` is the default
+* An Image: Repository + Tag. Given a unique Image ID.
+  * If a Tag is not specified, `:latest` is the default
 
+---
+## Example: local cache
+
+```bash
+$ docker image list -a
+
+```
+```
+REPOSITORY            TAG          IMAGE ID       CREATED         SIZE
+rwcitek/dsub          1667492740   3e5f71ce3e49   38 hours ago    1.93GB
+rwcitek/dsub          latest       3e5f71ce3e49   38 hours ago    1.93GB
+net-tools             latest       1677586800bd   2 days ago      945MB
+```
+```
+$ docker image inspect net-tools | jq -r .[0].Id
+
+```
+```
+sha256:1677586800bd6fd737c73d470b3dbeb8473d9683dbeeea3cfb7b8b7ed50faa5d
+
+```
 ---
 
 ## Example: dockerhub
