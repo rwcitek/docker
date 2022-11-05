@@ -234,6 +234,7 @@ $ elinks --dump http://127.0.0.1:8080
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 
 <img src="../../public/nginx.png" alt="slide" width="900"/>
+
 ---
 
 ## Service
@@ -241,6 +242,7 @@ $ elinks --dump http://127.0.0.1:8080
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 
 <img src="../../public/nginx.png" alt="slide" width="800"/>
+
 ---
 
 ## Service
