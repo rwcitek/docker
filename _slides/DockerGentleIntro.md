@@ -8,7 +8,7 @@ theme: black
 
 This presentation will show you examples of what it can do.
 
-![Docker](https://avatars.githubusercontent.com/u/5429470?s=200&v=4)
+![Docker](https://avatars.githubusercontent.com/u/5429470?s=600&v=4)
 
 {[Slides here](https://rwcitek.github.io/docker/slides/DockerGentleIntro/#/)}
 
@@ -52,7 +52,7 @@ This presentation will show you examples of what it can do.
 
 ## What is Docker?
 
-![Docker](https://avatars.githubusercontent.com/u/5429470?s=200&v=4)
+![Docker](https://avatars.githubusercontent.com/u/5429470?s=600&v=4)
 
 ---
 
