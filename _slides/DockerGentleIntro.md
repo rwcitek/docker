@@ -123,6 +123,7 @@ Decode the QR code
 $ cat hello-world.qrcode.png |
   docker run --rm -i rwcitek/barcode-gen \
     zbarimg -q --nodbus --raw -
+
 ```
 ```
 Hello, world!
@@ -137,6 +138,7 @@ Run Ubuntu, Fedora, Slackware, etc.
 
 ```bash
 $ docker run --rm -i -t ubuntu
+
 ```
 ```
 root@85f5a93206e9:/# head -5 /etc/os-release 
@@ -160,6 +162,7 @@ For example, the nginx web server
 $ docker run -d --name nginx -p 8080:80 nginx
 
 $ elinks --dump http://127.0.0.1:8080
+
 ```
 ```
 		       Welcome to nginx!
@@ -272,6 +275,7 @@ $ docker container exec -it net-tools /bin/bash
 
 ```bash
 # exit
+
 ```
 
 ~~
@@ -280,6 +284,7 @@ $ docker container exec -it net-tools /bin/bash
 
 ```bash
 $ docker container commit net-tools net-tools:1
+
 ```
 
 ~~
@@ -313,6 +318,7 @@ $ docker build --tag net-tools .
 ```bash
 $ docker container run --rm net-tools \
     ping -c 1 www.google.com
+
 ```
 ```
 PING www.google.com (142.250.69.228) 56(84) bytes of data.
@@ -332,6 +338,7 @@ rtt min/avg/max/mdev = 36.781/36.781/36.781/0.000 ms
 $ docker tag net-tools rwcitek/net-tools:example
 $ docker login
 $ docker image push rwcitek/net-tools:example
+
 ```
 
 ---
