@@ -12,6 +12,16 @@ This presentation will show you examples of what it can do.
 
 {[Slides here](https://rwcitek.github.io/docker/slides/DockerGentleIntro/#/)}
 
+---
+
+## Preamble
+- Ask lots of questions
+- Don't believe everything I say
+	1. Docker is a fast moving target.  What is true now will likely change ... soon.
+	2. I misspeak. Left instead of right, up instead of down, etc.
+	3. My environment is likely different than yours.  Versions, OS, platforms all matter.
+- Call me on it when something doesn't sound right.
+
 ----
 
 ## Roadmap
@@ -23,16 +33,6 @@ This presentation will show you examples of what it can do.
 - Best Practices
 - Who uses Docker
 
-
----
-
-## Preamble
-- Ask lots of questions
-- Don't believe everything I say
-	1. Docker is a fast moving target.  What is true now will likely change ... soon.
-	2. I misspeak. Left instead of right, up instead of down, etc.
-	3. My environment is likely different than yours.  Versions, OS, platforms all matter.
-- Call me on it when something doesn't sound right.
 
 ----
 
@@ -177,6 +177,31 @@ $ elinks --dump http://127.0.0.1:8080
 ## Service
 
 [http://penguin.linux.test:8080/](http://localhost:8080/)
+
+---
+
+## Why use Docker?
+<span class="fragment">Resource Isolation</span>
+
+---
+
+## Why use Docker?
+![Resource Isolation](https://sd.keepcalms.com/i/keep-calm-what-happens-in-vegas-stays-in-vegas-18.png)
+
+---
+
+## Why use Docker?
+What happens in Docker ...
+<span class="fragment">... stays in Docker</span>
+
+---
+
+## Resource Isolation
+- Process
+- Memory
+- File system
+- Networking
+- Other hardware
 
 ---
 
