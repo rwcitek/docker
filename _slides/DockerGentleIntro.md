@@ -27,6 +27,7 @@ This presentation will show you examples of what it can do.
 ## Roadmap
 - Use cases
 - Common "modes"
+- Why?
 - Docker objects and commands
 - Registry
 - Workflow
@@ -111,7 +112,7 @@ $ echo 'Hello, world!' |
 
 ```
 
-<img src="../../public/hello-world.qrcode.png" alt="slide" width="400"/>
+<img src="../../public/hello-world.qrcode.png" alt="slide" width="300"/>
 
 ---
 
@@ -129,6 +130,20 @@ $ cat hello-world.qrcode.png |
 Hello, world!
 
 ```
+
+## Single command
+
+QR code for this slide deck
+
+```
+$ echo 'https://rwcitek.github.io/docker/slides/DockerGentleIntro/' |
+  docker run --rm -i rwcitek/barcode-gen \
+    qrencode --type=PNG --level=H -o - \
+  > docker.qrcode.png
+
+```
+
+<img src="../../public/docker.qrcode.png" alt="slide" width="300"/>
 
 ---
 
@@ -181,12 +196,14 @@ $ elinks --dump http://127.0.0.1:8080
 ---
 
 ## Why use Docker?
+
 <span class="fragment">Resource Isolation</span>
 
 ---
 
 ## Why use Docker?
-![Resource Isolation](https://sd.keepcalms.com/i/keep-calm-what-happens-in-vegas-stays-in-vegas-18.png)
+
+<img src="https://sd.keepcalms.com/i/keep-calm-what-happens-in-vegas-stays-in-vegas-18.png" alt="vegas" width="300"/>
 
 ---
 
@@ -533,6 +550,7 @@ DO NOT:
 
 - Use cases
 - Common "modes"
+- Why?
 - Docker objects and commands
 - Registry
 - Workflow
@@ -549,9 +567,11 @@ DO NOT:
 
 ## Future topics
 
-- [Containers vs Virtual machines](https://docs.docker.com/get-started#containers-and-virtual-machines)
+- Docker: Volumes, Networking, Secrets, Compose, Swarm, ...
 
 - [Networks](https://success.docker.com/article/networking#userdefinedbridgenetworks)
+
+- [Containers vs Virtual machines](https://docs.docker.com/get-started#containers-and-virtual-machines)
 
 - [Kubernetes](https://kubernetes.io/)
 
@@ -561,7 +581,7 @@ DO NOT:
 
 <hr />
 
-- Markdown written with [StackEdit](https://stackedit.io/).
+- Markdown initially written with [StackEdit](https://stackedit.io/).
 - Diagrams with [DrawIO](https://www.draw.io/).
 - This presentation in [GitHub Pages](https://github.com/rwcitek/docker/tree/gh-pages)
 - This project repo in [GitHub](https://github.com/rwcitek/docker/blob/gh-pages/_slides/DockerGentleIntro.md)
