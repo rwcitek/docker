@@ -139,10 +139,15 @@ Run Ubuntu, Fedora, Slackware, etc.
 $ docker run --rm -i -t ubuntu
 ```
 ```
-root@4942f12c4b8d:/# ps faux
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         1  1.1  0.1   4624  3708 pts/0    Ss   19:04   0:00 bash
-root        10  0.0  0.0   7060  1640 pts/0    R+   19:04   0:00 ps faux
+root@85f5a93206e9:/# head -5 /etc/os-release 
+PRETTY_NAME="Ubuntu 22.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.1 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+
+root@85f5a93206e9:/# 
+
 ```
 
 ---
@@ -154,14 +159,13 @@ For example, the nginx web server
 ```bash
 $ docker run -d --name nginx -p 8080:80 nginx
 
-$ elinks --dump http://127.0.0.1:8080 | head -3
+$ elinks --dump http://127.0.0.1:8080
 ```
 ```
-                               Welcome to nginx!
+		       Welcome to nginx!
 
-   If you see this page, the nginx web server is successfully installed and
-   working. Further configuration is required.
-...
+   If you see this page, the nginx web server is successfully
+   installed and working. Further configuration is required.
 
 ```
 
@@ -197,10 +201,10 @@ $ elinks --dump http://127.0.0.1:8080 | head -3
 ## What actions can be performed on a container instance?
 
 - CRUD database like operations
-  - **C**reating - run, create - id/sha, name
-  - **R**ead/query - inspect
-  - **U**pdate - change state (pause, stop, start, kill)
-  - **D**elete - rm
+  - **C**<span class="fragment">reating - run, create - id/sha, name</span>
+  - **R**<span class="fragment">ead/query - inspect</span>
+  - **U**<span class="fragment">pdate - change state (pause, stop, start, kill)</span>
+  - **D**<span class="fragment">elete - rm</span>
  
 ---
 
@@ -213,7 +217,7 @@ $ elinks --dump http://127.0.0.1:8080 | head -3
 
 ---
 
-## Workflow
+## Configuration Workflow
 
 1. Run an instance as a service ( -d )
 1. Exec into the instance
@@ -228,9 +232,107 @@ $ elinks --dump http://127.0.0.1:8080 | head -3
 
 ----
 
-## Workflow
+## Configuration Workflow
 
 { Demo }
+
+~~
+
+## Workflow - Instance as a service
+
+```bash
+$ docker container run -d --name net-tools \
+    ubuntu:22.04 sleep inf
+
+```
+
+~~
+
+## Workflow - Exec
+
+```bash
+$ docker container exec -it net-tools /bin/bash
+
+```
+
+~~
+
+## Workflow - Modify
+
+```bash
+# export DEBIAN_FRONTEND=noninteractive
+# apt-get update
+# apt-get install -y iputils-ping
+
+```
+
+~~
+
+## Workflow - Exit
+
+```bash
+# exit
+```
+
+~~
+
+## Workflow - Commit
+
+```bash
+$ docker container commit net-tools net-tools:1
+```
+
+~~
+
+## Workflow - Repeat
+  1. Exec into the instance
+  1. Modify the instance
+  1. Exit the instance
+  1. Commit the instance to an image
+
+~~
+
+## Workflow - History to Dockerfile
+
+```bash
+$ cat Dockerfile
+FROM ubuntu:22.04
+RUN apt-get update && \
+    apt-get install -y iputils-ping
+CMD ["/bin/bash"]
+COPY Dockerfile /
+
+$ docker build --tag net-tools .
+
+```
+
+~~
+
+## Workflow - Test
+
+```bash
+$ docker container run --rm net-tools \
+    ping -c 1 www.google.com
+```
+```
+PING www.google.com (142.250.69.228) 56(84) bytes of data.
+64 bytes from den08s05-in-f4.1e100.net (142.250.69.228): icmp_seq=1 ttl=114 time=36.8 ms
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 36.781/36.781/36.781/0.000 ms
+
+```
+
+~~
+
+## Workflow - Push
+
+```bash
+$ docker tag net-tools rwcitek/net-tools:example
+$ docker login
+$ docker image push rwcitek/net-tools:example
+```
 
 ---
 
