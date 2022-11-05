@@ -85,6 +85,7 @@ Say Hello
 ```
 $ docker run --rm hello-world
 ```
+
 <span class="fragment">
 ```
 Hello from Docker!
@@ -113,6 +114,7 @@ $ echo 'https://rwcitek.github.io/docker/slides/DockerGentleIntro/' |
   > docker.qrcode.png
 
 ```
+
 <span class="fragment">
 <img src="../../public/docker.qrcode.png" alt="slide" width="300"/>
 </span>
@@ -130,6 +132,7 @@ $ echo 'Hello, world!' |
   > hello-world.qrcode.png
 
 ```
+
 <span class="fragment">
 <img src="../../public/hello-world.qrcode.png" alt="slide" width="300"/>
 </span>
@@ -146,6 +149,7 @@ $ cat hello-world.qrcode.png |
     zbarimg -q --nodbus --raw -
 
 ```
+
 <span class="fragment">
 ```
 Hello, world!
