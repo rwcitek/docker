@@ -206,7 +206,7 @@ $ elinks --dump http://127.0.0.1:8080
 
    If you see this page, the nginx web server is successfully
    installed and working. Further configuration is required.
-
+   ...
 ```
 
 ---
@@ -218,11 +218,33 @@ $ elinks --dump http://127.0.0.1:8080
 
 ---
 
+## Service
+
+... or the Apache2 web server at the same time
+
+```
+$ docker container run -d --name apache -p 8081:80 ubuntu/apache2
+
+$ elinks --dump http://127.0.0.1:8081
+
+```
+```
+   [1]Ubuntu Logo
+   Apache2 Default Page
+   It works!
+
+   This is the default welcome page used to test the correct
+   operation of the Apache2 server after installation on Ubuntu
+   systems. It is based on the equivalent page on Debian, from 
+   ...
+```
+
 ---
 
 ## Service
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 500
+
 <img src="../../public/nginx.png" alt="slide" width="500"/>
 <img src="../../public/nginx.png" alt="slide" width="500"/>
 
@@ -232,6 +254,7 @@ $ elinks --dump http://127.0.0.1:8080
 ## Service
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 400
+
 <img src="../../public/nginx.png" alt="slide" width="400"/>
 <img src="../../public/nginx.png" alt="slide" width="400"/>
 
@@ -241,6 +264,7 @@ $ elinks --dump http://127.0.0.1:8080
 ## Service
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 300
+
 <img src="../../public/nginx.png" alt="slide" width="300"/>
 <img src="../../public/nginx.png" alt="slide" width="300"/>
 
@@ -250,6 +274,7 @@ $ elinks --dump http://127.0.0.1:8080
 ## Service
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 200
+
 <img src="../../public/nginx.png" alt="slide" width="200"/>
 <img src="../../public/nginx.png" alt="slide" width="200"/>
 
@@ -259,6 +284,7 @@ $ elinks --dump http://127.0.0.1:8080
 ## Service
 [http://localhost:8080/](http://penguin.linux.test:8080/)
 100
+
 <img src="../../public/nginx.png" alt="slide" width="100"/>
 <img src="../../public/nginx.png" alt="slide" width="100"/>
 
