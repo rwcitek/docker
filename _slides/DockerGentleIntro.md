@@ -351,7 +351,7 @@ docker run --rm nettools \
 
 ---
 
-## Building an image with an Here-Doc Dockerfile
+## Building an image with a Here-Doc Dockerfile
 ```
 <<'eof' docker build --tag nettools:here-doc -
 FROM ubuntu:22.04
