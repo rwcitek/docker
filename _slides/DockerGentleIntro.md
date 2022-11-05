@@ -640,27 +640,25 @@ DO NOT:
 
 ---
 
-## Future topics
+## What's next?
 
 - Docker: Volumes, Networking, Secrets, Compose, Swarm, ...
-
-- [Networks](https://success.docker.com/article/networking#userdefinedbridgenetworks)
-
-- [Containers vs Virtual machines](https://docs.docker.com/get-started#containers-and-virtual-machines)
+  - See the [docs](https://docs.docker.com/get-started/)
 
 - [Kubernetes](https://kubernetes.io/)
 
+- [Docker + WebAssembly (WASM)](https://docs.docker.com/desktop/wasm)
+
 - Philosophy
   - [Cattle vs pets](http://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/#understanding-pets-and-cattle)
-
 
 ---
 
 ## Acknowledgments
 
-- Markdown initially written with [StackEdit](https://stackedit.io/).
-- Diagrams with [DrawIO](https://www.draw.io/).
-- This presentation in [GitHub Pages](https://github.com/rwcitek/docker/tree/gh-pages)
+- Markdown initially written with [StackEdit](https://stackedit.io/)
+- Diagrams with [DrawIO](https://www.draw.io/)
+- This presentation in [GitHub Pages](https://rwcitek.github.io/docker/slides/DockerGentleIntro/)
 - This project repo in [GitHub](https://github.com/rwcitek/docker/blob/gh-pages/_slides/DockerGentleIntro.md)
 
 
