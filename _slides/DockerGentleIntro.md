@@ -82,7 +82,7 @@ Top three "modes" for Docker containers
 ## Single command
 Say Hello
 
-```bash
+```
 $ docker run --rm hello-world
 ```
 ```
@@ -103,7 +103,7 @@ following steps:
 
 Say hello in a QR code
 
-```bash
+```
 $ echo 'Hello, world!' |
   docker run --rm -i rwcitek/barcode-gen \
     qrencode --type=PNG --level=H -o - \
@@ -119,7 +119,7 @@ $ echo 'Hello, world!' |
 
 Decode the QR code
 
-```bash
+```
 $ cat hello-world.qrcode.png |
   docker run --rm -i rwcitek/barcode-gen \
     zbarimg -q --nodbus --raw -
@@ -136,7 +136,7 @@ Hello, world!
 
 Run Ubuntu, Fedora, Slackware, etc.
 
-```bash
+```
 $ docker run --rm -i -t ubuntu
 
 ```
@@ -158,7 +158,7 @@ root@85f5a93206e9:/#
 
 For example, the nginx web server
 
-```bash
+```
 $ docker run -d --name nginx -p 8080:80 nginx
 
 $ elinks --dump http://127.0.0.1:8080
@@ -243,7 +243,7 @@ $ elinks --dump http://127.0.0.1:8080
 
 ## Workflow - Instance as a service
 
-```bash
+```
 $ docker container run -d --name net-tools \
     ubuntu:22.04 sleep inf
 
@@ -253,7 +253,7 @@ $ docker container run -d --name net-tools \
 
 ## Workflow - Exec
 
-```bash
+```
 $ docker container exec -it net-tools /bin/bash
 
 ```
@@ -262,7 +262,7 @@ $ docker container exec -it net-tools /bin/bash
 
 ## Workflow - Modify
 
-```bash
+```
 # export DEBIAN_FRONTEND=noninteractive
 # apt-get update
 # apt-get install -y iputils-ping
@@ -273,7 +273,7 @@ $ docker container exec -it net-tools /bin/bash
 
 ## Workflow - Exit
 
-```bash
+```
 # exit
 
 ```
@@ -282,7 +282,7 @@ $ docker container exec -it net-tools /bin/bash
 
 ## Workflow - Commit
 
-```bash
+```
 $ docker container commit net-tools net-tools:1
 
 ```
@@ -299,7 +299,7 @@ $ docker container commit net-tools net-tools:1
 
 ## Workflow - History to Dockerfile
 
-```bash
+```
 $ cat Dockerfile
 FROM ubuntu:22.04
 RUN apt-get update && \
@@ -315,7 +315,7 @@ $ docker build --tag net-tools .
 
 ## Workflow - Test
 
-```bash
+```
 $ docker container run --rm net-tools \
     ping -c 1 www.google.com
 
@@ -334,7 +334,7 @@ rtt min/avg/max/mdev = 36.781/36.781/36.781/0.000 ms
 
 ## Workflow - Push
 
-```bash
+```
 $ docker tag net-tools rwcitek/net-tools:example
 $ docker login
 $ docker image push rwcitek/net-tools:example
@@ -354,7 +354,7 @@ $ docker image push rwcitek/net-tools:example
 ---
 ## Example: local cache
 
-```bash
+```
 $ docker image list -a
 
 ```
@@ -363,6 +363,7 @@ REPOSITORY            TAG          IMAGE ID       CREATED         SIZE
 rwcitek/dsub          1667492740   3e5f71ce3e49   38 hours ago    1.93GB
 rwcitek/dsub          latest       3e5f71ce3e49   38 hours ago    1.93GB
 net-tools             latest       1677586800bd   2 days ago      945MB
+
 ```
 ```
 $ docker image inspect net-tools | jq -r .[0].Id
@@ -412,7 +413,7 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 ## Building an image with a Dockerfile
 A Dockerfile is a collection of commands used to build an image
 
-```bash
+```
 cat <<'eof' > Dockerfile
 FROM ubuntu:22.04
 RUN apt-get update && \
@@ -430,7 +431,7 @@ docker run --rm nettools \
 ---
 
 ## Building an image with an Here-Doc Dockerfile
-```bash
+```
 <<'eof' docker build --tag nettools:here-doc -
 FROM ubuntu:22.04
 RUN apt-get update && \
