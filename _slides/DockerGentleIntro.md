@@ -251,19 +251,19 @@ What happens in Docker ...
 - testing environments; mistakes
 - consistent environments
 - portable
-- ...
+- ... many others
 
 ---
 
 ## Objects in a Docker Environment
 
-  - *Container Instances*
-  - *Container Images*
-  - Layers
+  - **Container Instances**
+  - **Container Images**
   - Registry
   - Repository
   - Tags
   - Volumes
+  - Layers
   - Networks
   - Swarms
   - Pods
