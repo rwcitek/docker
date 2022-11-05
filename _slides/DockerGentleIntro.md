@@ -272,7 +272,7 @@ What happens in Docker ...
 
 ## Docker objects and commands
 
-![docker flow](https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true)
+<img src="https://github.com/rwcitek/docker/blob/master/draw.io/Docker.flow.png?raw=true" alt="Docker objects" width="600"/>
 
 ---
 
