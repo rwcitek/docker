@@ -263,9 +263,12 @@ Apache2: [http://localhost:8081/](http://penguin.linux.test:8081/)
 ---
 
 ## Why use Docker?
-What happens in Docker ...
+Resource Isolation
 
-<span class="fragment">... stays in Docker</span>
+<span class="fragment">
+  <img src="../../public/calm.docker.jpeg" alt="calm docker" width="400"/>
+</span>
+
 
 ---
 
