@@ -182,11 +182,11 @@ $ elinks --dump http://127.0.0.1:8080
 
 ## Objects in a Docker Environment
 
-  - Container Instances
+  - *Container Instances*
+  - *Container Images*
   - Layers
   - Registry
   - Repository
-  - Images
   - Tags
   - Volumes
   - Networks
@@ -217,6 +217,47 @@ $ elinks --dump http://127.0.0.1:8080
   - instead: create image and then create container
 - modify CPU, RAM, Volumes, Network
   - instead: launch new container with new options
+
+---
+
+## Building an image with a Dockerfile
+A Dockerfile is a collection of commands used to build an image
+
+```
+cat <<'eof' > Dockerfile
+FROM ubuntu:22.04
+RUN apt-get update && \
+    apt-get install -y man-db vim tree less net-tools \
+      elinks tidy procps nmap curl telnet iputils-ping \
+      dnsutils iproute2 traceroute jq git rsync
+CMD ["/bin/bash"]
+COPY Dockerfile /
+eof
+
+docker build --tag nettools .
+
+docker run --rm nettools \
+  curl -L -s -I google.com
+
+```
+
+---
+
+## Building an image with an Here-Doc Dockerfile
+```
+<<'eof' docker build --tag nettools:here-doc -
+FROM ubuntu:22.04
+RUN apt-get update && \
+    apt-get install -y man-db vim tree less net-tools \
+      elinks tidy procps nmap curl telnet iputils-ping \
+      dnsutils iproute2 traceroute jq git rsync
+COPY Dockerfile /
+eof
+
+docker run --rm nettools:here-doc \
+  curl -L -s -I google.com
+
+```
 
 ---
 
@@ -419,43 +460,6 @@ repository = pdxmolab/pdx_ppmp/tools
 ```
 
 Note that slashes '/' in a repository's name have no semantic meaning.
-
----
-
-## Building an image with a Dockerfile
-A Dockerfile is a collection of commands used to build an image
-
-```
-cat <<'eof' > Dockerfile
-FROM ubuntu:22.04
-RUN apt-get update && \
-    apt-get install -y man-db vim tree less net-tools \
-      elinks tidy procps nmap curl telnet iputils-ping \
-      dnsutils iproute2 traceroute jq git rsync
-COPY Dockerfile /
-eof
-
-docker build --tag nettools .
-
-docker run --rm nettools \
-  curl -L -s -I google.com
-```
----
-
-## Building an image with an Here-Doc Dockerfile
-```
-<<'eof' docker build --tag nettools:here-doc -
-FROM ubuntu:22.04
-RUN apt-get update && \
-    apt-get install -y man-db vim tree less net-tools \
-      elinks tidy procps nmap curl telnet iputils-ping \
-      dnsutils iproute2 traceroute jq git rsync
-COPY Dockerfile /
-eof
-
-docker run --rm nettools:here-doc \
-  curl -L -s -I google.com
-```
 
 ---
 
