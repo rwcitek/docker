@@ -151,7 +151,7 @@ $ echo 'https://rwcitek.github.io/docker/slides/DockerGentleIntro/' |
 
 ## VM-like environment
 
-Run Ubuntu, Fedora, Slackware, etc.
+Run Ubuntu ...
 
 ```
 $ docker run --rm -i -t ubuntu
@@ -167,6 +167,25 @@ VERSION_CODENAME=jammy
 
 root@85f5a93206e9:/# 
 
+```
+
+## VM-like environment
+
+... or Fedora, Slackware, etc.
+
+```
+$ docker run --rm -i -t fedora
+
+```
+```
+[root@7652568cd347 /]# head -5 /etc/os-release 
+NAME="Fedora Linux"
+VERSION="36 (Container Image)"
+ID=fedora
+VERSION_ID=36
+VERSION_CODENAME=""
+
+[root@7652568cd347 /]# 
 ```
 
 ---
