@@ -87,10 +87,14 @@ $ docker run --rm hello-world
 ```
 ```
 Hello from Docker!
-This message shows that your installation appears to be working correctly.
+This message shows that your installation appears
+to be working correctly.
 
-To generate this message, Docker took the following steps:
+To generate this message, Docker took the
+following steps:
  1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world"
+    image from the Docker Hub.
 ...
 ```
 ---
@@ -99,11 +103,12 @@ To generate this message, Docker took the following steps:
 
 Say hello in a QR code
 
-
 ```bash
 $ echo 'Hello, world!' |
   docker run --rm -i rwcitek/barcode-gen \
-  qrencode --type=PNG --level=H -o - > hello-world.qrcode.png
+    qrencode --type=PNG --level=H -o - \
+  > hello-world.qrcode.png
+
 ```
 
 <img src="../../public/hello-world.qrcode.png" alt="slide" width="400"/>
@@ -117,7 +122,7 @@ Decode the QR code
 ```bash
 $ cat hello-world.qrcode.png |
   docker run --rm -i rwcitek/barcode-gen \
-  zbarimg -q --nodbus --raw -
+    zbarimg -q --nodbus --raw -
 ```
 ```
 Hello, world!
@@ -144,17 +149,20 @@ root        10  0.0  0.0   7060  1640 pts/0    R+   19:04   0:00 ps faux
 
 ## Service
 
-For example, a the nginx web server
+For example, the nginx web server
 
 ```bash
-$ docker run --name nginx -p 8080:80 -d nginx
+$ docker run -d --name nginx -p 8080:80 nginx
+
 $ elinks --dump http://127.0.0.1:8080 | head -3
 ```
 ```
                                Welcome to nginx!
 
    If you see this page, the nginx web server is successfully installed and
+   working. Further configuration is required.
 ...
+
 ```
 
 ---
