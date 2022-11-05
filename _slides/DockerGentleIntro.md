@@ -577,9 +577,9 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 
 ## Who/what uses Docker?
 
-- [dsub](https://github.com/DataBiosphere/dsub)
 - [Google CoLab](https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03)
 - [MyBinder](https://github.com/rwcitek/MyBinder.demo/blob/main/Regular.Expressions/wordle.bash.ipynb)
+- [dsub](https://github.com/DataBiosphere/dsub)
 
 ---
 
