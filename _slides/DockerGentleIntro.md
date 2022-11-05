@@ -86,7 +86,6 @@ Say Hello
 $ docker run --rm hello-world
 ```
 
-<span class="fragment">
 ```
 Hello from Docker!
 This message shows that your installation appears
@@ -99,7 +98,6 @@ following steps:
     image from the Docker Hub.
 ...
 ```
-</span>
 
 ---
 
@@ -150,12 +148,10 @@ $ cat hello-world.qrcode.png |
 
 ```
 
-<span class="fragment">
 ```
 Hello, world!
 
 ```
-</span>
 
 ---
 
