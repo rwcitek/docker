@@ -176,7 +176,7 @@ $ elinks --dump http://127.0.0.1:8080
 
 ## Service
 
-[http://penguin.linux.test:8080/](http://localhost:8080/)
+[http://localhost:8080/](http://penguin.linux.test:8080/)
 
 ---
 
@@ -192,6 +192,7 @@ $ elinks --dump http://127.0.0.1:8080
 
 ## Why use Docker?
 What happens in Docker ...
+
 <span class="fragment">... stays in Docker</span>
 
 ---
