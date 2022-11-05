@@ -54,7 +54,6 @@ This presentation will show you examples of what it can do.
 
 ![Docker](https://avatars.githubusercontent.com/u/5429470?s=200&v=4)
 
-
 ---
 
 ## What is Docker?
@@ -213,6 +212,8 @@ $ elinks --dump http://127.0.0.1:8080
 ## Service
 
 [http://localhost:8080/](http://penguin.linux.test:8080/)
+
+<img src="../../public/nginx.png" alt="slide" width="400"/>
 
 ---
 
