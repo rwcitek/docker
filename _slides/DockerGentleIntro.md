@@ -586,8 +586,8 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 
 ## Who/what uses Docker?
 
-- [Google CoLab](https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03)
-- [MyBinder](https://github.com/rwcitek/MyBinder.demo/blob/main/Regular.Expressions/wordle.bash.ipynb)
+- [Google CoLab](https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03) - launches a CoLab notebook
+- [MyBinder](https://mybinder.org/v2/gh/rwcitek/MyBinder.demo/main?labpath=%2FRegular.Expressions%2Fwordle.bash.ipynb) - launches a Jupyter notebook
 - [dsub](https://github.com/DataBiosphere/dsub)
 
 ---
