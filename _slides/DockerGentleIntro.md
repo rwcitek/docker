@@ -603,7 +603,7 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 
 ## dsub
 
-[demo](https://github.com/rwcitek/Docker.dsub#readme)
+{ [demo](https://github.com/rwcitek/Docker.dsub#readme) }
 
 ---
 
