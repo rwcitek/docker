@@ -96,7 +96,7 @@ theme: black
 
 # 13
 
-# Ubiquitous: Amazon, Walmart
+# Long battery: > 10 hrs
 
 ---
 
@@ -108,7 +108,7 @@ theme: black
 
 # 12
 
-# Inexpensive: < $100
+# Availability: Amazon, Walmart
 
 ---
 
@@ -120,7 +120,7 @@ theme: black
 
 # 11
 
-# Long battery life: > 10 hrs
+# Inexpensive: < $100
 
 ---
 
@@ -168,7 +168,7 @@ theme: black
 
 # 7
 
-# Runs Linux apps: ssh,
+# Runs Linux apps: ssh, gcc, VSC
 
 ---
 
@@ -180,7 +180,7 @@ theme: black
 
 # 6
 
-# Docker
+# Runs Docker
 
 ---
 
@@ -240,7 +240,7 @@ theme: black
 
 # 1
 
-# Develop Android apps
+# Teach Data Science
 
 ---
 
@@ -258,12 +258,6 @@ theme: black
 
 ---
   
----
-
-
----
-
-
 ---
 
 
