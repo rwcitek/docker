@@ -4,10 +4,6 @@ description: Top 20 reasons why I use a Chromebook
 theme: black
 ---
 
-# Chromebook!
-
----
-
 <big style="font-size:200px;">
 20
 </big>
