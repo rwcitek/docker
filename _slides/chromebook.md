@@ -16,5 +16,18 @@ No header
 
 ---
 
+<big style="font-size:150px;">High Score</big>
+
+---
+
+<big style="font-size:200px;">High Score</big>
+
+---
+
+<big style="font-size:250px;">High Score</big>
+
+---
+
+# blank
 
 ---
