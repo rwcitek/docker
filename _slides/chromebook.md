@@ -244,6 +244,18 @@ theme: black
 
 ---
 
+<big style="font-size:200px;">
+0
+</big>
+
+---
+
+# 0
+
+# Develop Android apps
+
+---
+
 ---
   
 ---
