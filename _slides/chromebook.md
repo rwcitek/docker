@@ -8,6 +8,8 @@ theme: black
 ### Top 20 Reasons Why I Use A Chromebook
 #### Robert Citek
 
+[https://rwcitek.github.io/docker/slides/chromebook/#](https://rwcitek.github.io/docker/slides/chromebook/#)
+
 <span class="fragment">
 <img src="../../public/chromebook.qrcode.png" alt="slide" width="300"/>
 </span>
