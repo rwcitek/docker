@@ -4,6 +4,16 @@ description: Top 20 reasons why I use a Chromebook
 theme: black
 ---
 
+# The Chromebook
+### Top 20 Reasons Why I Use A Chromebook
+#### Robert Citek
+
+<span class="fragment">
+<img src="../../public/chromebook.qrcode.png" alt="slide" width="300"/>
+</span>
+
+---
+
 <big style="font-size:200px;">
 20
 </big>
