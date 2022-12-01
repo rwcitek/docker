@@ -266,6 +266,17 @@ theme: black
 
 ---
 
+# Thanks!
+
+### Robert Citek
+
+<span class="fragment">
+<img src="../../public/chromebook.qrcode.png" alt="slide" width="300"/>
+</span>
+
+---
+
+
 ---
   
 ---
