@@ -12,7 +12,7 @@ theme: black
 
 # 20
 
-Created by Google
+# Created by Google
 
 ---
 
@@ -24,7 +24,7 @@ Created by Google
 
 # 19
 
-Form factor: laptop, tablet, combo
+# Form factor: laptop, tablet, combo
 
 ---
 
@@ -36,7 +36,7 @@ Form factor: laptop, tablet, combo
 
 # 18
 
-Runs Linux: Gentoo
+# Runs Linux: Gentoo
 
 ---
 
@@ -48,7 +48,7 @@ Runs Linux: Gentoo
 
 # 17
 
-Three modes: kiosk/managed, standard, dev
+# Three modes: kiosk/managed, standard, dev
 
 ---
 
@@ -60,7 +60,7 @@ Three modes: kiosk/managed, standard, dev
 
 # 16
 
-Runs Chrome
+# Runs Chrome
 
 ---
 
@@ -72,7 +72,7 @@ Runs Chrome
 
 # 15
 
-Wireless: wifi, bluetooth
+# Wireless: wifi, bluetooth
 
 ---
 
@@ -84,7 +84,7 @@ Wireless: wifi, bluetooth
 
 # 14
 
-Light: < 2.5lb
+# Light: < 2.5lb
 
 ---
 
@@ -96,7 +96,7 @@ Light: < 2.5lb
 
 # 13
 
-Ubiquitous: Amazon, Walmart
+# Ubiquitous: Amazon, Walmart
 
 ---
 
@@ -108,7 +108,7 @@ Ubiquitous: Amazon, Walmart
 
 # 12
 
-Inexpensive: < $100
+# Inexpensive: < $100
 
 ---
 
@@ -120,7 +120,7 @@ Inexpensive: < $100
 
 # 11
 
-Long battery life: > 10 hrs
+# Long battery life: > 10 hrs
 
 ---
 
@@ -132,7 +132,7 @@ Long battery life: > 10 hrs
 
 # 10
 
-Fast start-up: < 10s
+# Fast start-up: < 10s
 
 ---
 
@@ -144,7 +144,7 @@ Fast start-up: < 10s
 
 # 9
 
-Mounts Google Drive
+# Mounts Google Drive
 
 ---
 
@@ -156,7 +156,7 @@ Mounts Google Drive
 
 # 8
 
-Linux Dev Env: Debian 11
+# Linux Dev Env: Debian 11
 
 ---
 
@@ -168,7 +168,7 @@ Linux Dev Env: Debian 11
 
 # 7
 
-Runs Linux apps: ssh,
+# Runs Linux apps: ssh,
 
 ---
 
@@ -180,7 +180,7 @@ Runs Linux apps: ssh,
 
 # 6
 
-Docker
+# Docker
 
 ---
 
@@ -192,7 +192,7 @@ Docker
 
 # 5
 
-X-server: Wayland
+# X-server: Wayland
 
 ---
 
@@ -204,7 +204,7 @@ X-server: Wayland
 
 # 4
 
-Roaming profile
+# Roaming profile
 
 ---
 
@@ -216,7 +216,7 @@ Roaming profile
 
 # 3
 
-PowerWash
+# PowerWash
 
 ---
 
@@ -228,7 +228,7 @@ PowerWash
 
 # 2
 
-Runs Android apps
+# Runs Android apps
 
 ---
 
@@ -240,7 +240,9 @@ Runs Android apps
 
 # 1
 
-Develop Android apps
+# Develop Android apps
+
+---
 
 ---
   
