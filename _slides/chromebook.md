@@ -14,10 +14,10 @@ theme: black
 
 ---
 
-<big style="font-size:200px;">
+# 20
+
 Created by Google
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -26,10 +26,10 @@ Created by Google
 
 ---
 
-<big style="font-size:200px;">
+# 19
+
 Form factor: laptop, tablet, combo
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -38,10 +38,10 @@ Form factor: laptop, tablet, combo
 
 ---
 
-<big style="font-size:200px;">
+# 18
+
 Runs Linux: Gentoo
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -50,10 +50,10 @@ Runs Linux: Gentoo
 
 ---
 
-<big style="font-size:200px;">
+# 17
+
 Three modes: kiosk/managed, standard, dev
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -62,10 +62,10 @@ Three modes: kiosk/managed, standard, dev
 
 ---
 
-<big style="font-size:200px;">
+# 16
+
 Runs Chrome
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -74,10 +74,10 @@ Runs Chrome
 
 ---
 
-<big style="font-size:200px;">
+# 15
+
 Wireless: wifi, bluetooth
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -86,10 +86,10 @@ Wireless: wifi, bluetooth
 
 ---
 
-<big style="font-size:200px;">
+# 14
+
 Light: < 2.5lb
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -98,10 +98,10 @@ Light: < 2.5lb
 
 ---
 
-<big style="font-size:200px;">
+# 13
+
 Ubiquitous: Amazon, Walmart
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -110,10 +110,10 @@ Ubiquitous: Amazon, Walmart
 
 ---
 
-<big style="font-size:200px;">
+# 12
+
 Inexpensive: < $100
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -122,10 +122,10 @@ Inexpensive: < $100
 
 ---
 
-<big style="font-size:200px;">
+# 11
+
 Long battery life: > 10 hrs
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -134,10 +134,10 @@ Long battery life: > 10 hrs
 
 ---
 
-<big style="font-size:200px;">
+# 10
+
 Fast start-up: < 10s
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -146,10 +146,10 @@ Fast start-up: < 10s
 
 ---
 
-<big style="font-size:200px;">
+# 9
+
 Mounts Google Drive
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -158,10 +158,10 @@ Mounts Google Drive
 
 ---
 
-<big style="font-size:200px;">
+# 8
+
 Linux Dev Env: Debian 11
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -170,10 +170,10 @@ Linux Dev Env: Debian 11
 
 ---
 
-<big style="font-size:200px;">
+# 7
+
 Runs Linux apps: ssh,
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -182,10 +182,10 @@ Runs Linux apps: ssh,
 
 ---
 
-<big style="font-size:200px;">
+# 6
+
 Docker
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -194,10 +194,10 @@ Docker
 
 ---
 
-<big style="font-size:200px;">
+# 5
+
 X-server: Wayland
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -206,10 +206,10 @@ X-server: Wayland
 
 ---
 
-<big style="font-size:200px;">
+# 4
+
 Roaming profile
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -218,10 +218,10 @@ Roaming profile
 
 ---
 
-<big style="font-size:200px;">
+# 3
+
 PowerWash
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -230,10 +230,10 @@ PowerWash
 
 ---
 
-<big style="font-size:200px;">
+# 2
+
 Runs Android apps
-</big>
-  
+
 ---
 
 <big style="font-size:200px;">
@@ -242,9 +242,11 @@ Runs Android apps
 
 ---
 
-<big style="font-size:200px;">
+# 1
+
 Develop Android apps
-</big>
+
+---
   
 ---
 
