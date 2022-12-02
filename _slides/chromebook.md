@@ -275,6 +275,11 @@ theme: black
 
 ---
 
+References:
+- [CNM Ingenuity DeepDive Data Science](https://deepdivecoding.com/data-science/)
+- [CNM Ingenuity DeepDive Coding](https://deepdivecoding.com/)
+- [CNM Ingenuity](https://cnmingenuity.org/)
+- [e-mail Robert Citek](rcitek@cnm.edu)
 
 ---
   
