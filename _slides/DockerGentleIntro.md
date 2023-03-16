@@ -408,6 +408,15 @@ $ docker container run -d --name net-tools \
 ```
 
 ~~
+## Workflow - Verify instance
+
+```
+$ docker container list -a
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS         PORTS     NAMES
+08316f66e7ab   ubuntu:22.04   "sleep inf"   6 minutes ago   Up 4 seconds             net-tools
+```
+
+~~
 
 ## Workflow - Exec
 
