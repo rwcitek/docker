@@ -74,7 +74,7 @@ This presentation will show you examples of what it can do.
 
 Top three "modes" for Docker containers
 1. Run individual commands
-1. Create a learning, development, troubleshooting virtual machine-like environment
+1. Create an interactive learning, development, or troubleshooting virtual machine-like environment
 1. Run services, e.g. a web server
 
 ---
