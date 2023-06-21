@@ -6,6 +6,14 @@ theme: black
 
 # Docker!
 
+by Robert Citek
+
+<img src="../../public/docker.qrcode.png" alt="slide" width="300"/>
+
+---
+
+# Docker!
+
 This presentation will show you examples of what it can do.
 
 ![Docker](https://avatars.githubusercontent.com/u/5429470?s=600&v=4)
@@ -37,12 +45,15 @@ This presentation will show you examples of what it can do.
 
 ----
 
-## What is it? 
+## What is this? 
+
 ![Red Paperclip](https://upload.wikimedia.org/wikipedia/commons/1/1c/One_red_paperclip.jpg)
+
 
 ----
 
-## What you can do with it?
+## What you can do with this?
+
 ![Red Paperclip](https://upload.wikimedia.org/wikipedia/commons/1/1c/One_red_paperclip.jpg)
 
 
@@ -61,12 +72,23 @@ This presentation will show you examples of what it can do.
 - Light-weight virtual machine
 - A container system
 
+
+----
+
+## What you can do with Docker?
+
+LOTS!
+
 ---
-## Use cases
+
+## Some use cases
 
 - "Appliance" that generates QR codes
 - Genomics pipeline
 - Convert 10,000 images to TIFF w/metadata
+<span class="fragment">
+      .... in minutes.
+</span>
 
 ---
 
@@ -80,6 +102,11 @@ Top three "modes" for Docker containers
 ---
 
 ## Single command
+
+---
+
+## Single command
+
 Say Hello
 
 ```
@@ -157,6 +184,10 @@ Hello, world!
 
 ## VM-like environment
 
+---
+
+## VM-like environment
+
 Run Ubuntu ...
 
 ```
@@ -195,6 +226,10 @@ VERSION_CODENAME=""
 
 [root@7652568cd347 /]# 
 ```
+
+---
+
+## Service
 
 ---
 
@@ -269,6 +304,7 @@ Apache2: [http://localhost:8081/](http://penguin.linux.test:8081/)
 ---
 
 ## Why use Docker?
+
 Resource Isolation
 
 <span class="fragment">
@@ -279,6 +315,7 @@ Resource Isolation
 ---
 
 ## Resource Isolation
+
 - Process
 - Memory
 - File system
@@ -288,11 +325,13 @@ Resource Isolation
 ---
 
 ## Implications
+
+- keep host pristine
 - more than one environment
-- throw-away environments
 - testing environments; mistakes
-- consistent environments
+- automated, consistent environments
 - portable
+- IaC: Infrastructure as Code
 - ... many others
 
 ---
@@ -320,12 +359,20 @@ Resource Isolation
 
 ## What actions can be performed on a container instance?
 
+---
+
+## What actions can be performed on a container instance?
+
 - CRUD database like operations
   - **C**<span class="fragment">reating - run, create - id/sha, name</span>
   - **R**<span class="fragment">ead/query - inspect</span>
   - **U**<span class="fragment">pdate - change state (pause, stop, start, kill)</span>
   - **D**<span class="fragment">elete - rm</span>
  
+---
+
+## What actions CANNOT be performed on a container instance?
+
 ---
 
 ## What actions CANNOT be performed on a container instance?
@@ -343,6 +390,7 @@ A Dockerfile is a collection of commands used to build an image
 ```
 cat <<'eof' > Dockerfile
 FROM ubuntu:22.04
+ARG DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y man-db vim tree less net-tools \
       elinks tidy procps nmap curl telnet iputils-ping \
@@ -364,17 +412,23 @@ docker run --rm nettools \
 ```
 <<'eof' docker build --tag nettools:here-doc -
 FROM ubuntu:22.04
+ARG DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y man-db vim tree less net-tools \
       elinks tidy procps nmap curl telnet iputils-ping \
       dnsutils iproute2 traceroute jq git rsync
-COPY Dockerfile /
+CMD ["/bin/bash"]
+# COPY Dockerfile /  # no longer works :(
 eof
 
 docker run --rm nettools:here-doc \
   curl -L -s -I google.com
 
 ```
+
+---
+
+## Image Configuration and Build Workflow
 
 ---
 
@@ -458,6 +512,7 @@ $ docker container commit net-tools net-tools:1
 ~~
 
 ## Workflow - Repeat
+
   1. Exec into the instance
   1. Modify the instance
   1. Exit the instance
@@ -506,8 +561,8 @@ rtt min/avg/max/mdev = 36.781/36.781/36.781/0.000 ms
 ## Workflow - Push
 
 ```
-$ docker tag net-tools rwcitek/net-tools:example
 $ docker login
+$ docker tag net-tools rwcitek/net-tools:example
 $ docker image push rwcitek/net-tools:example
 
 ```
@@ -527,6 +582,7 @@ $ docker image list -a |
 ---
 
 ## How to get an image
+
 * A Registry is a host that contains a collection of Repositories.
   * If a Registry is not specified, `dockerhub.com` is the default
 * A Repository contains a collection of tagged images.
@@ -559,6 +615,11 @@ sha256:1677586800bd6fd737c73d470b3dbeb8473d9683dbeeea3cfb7b8b7ed50faa5d
 ---
 
 ## Example: dockerhub
+
+---
+
+## Example: dockerhub
+
 DockerHub is the default
 
 ```
@@ -578,15 +639,19 @@ repository = ubuntu
 
 ## Example: Amazon ECR
 
+---
+
+## Example: Amazon ECR
+
 ```
 docker pull \
-  313257557546.dkr.ecr.us-east-1.amazonaws.com/pdxmolab/pdx_ppmp/tools:ppmp-fastqc-0.11.5-1
+  513257557546.dkr.ecr.us-east-1.amazonaws.com/foo/bar/tools:cool-stuff-0.11.5-1
 ```
 ```
-  registry = 313257557546.dkr.ecr.us-east-1.amazonaws.com
-repository = pdxmolab/pdx_ppmp/tools
-       tag = ppmp-fastqc-0.11.5-1
-     image = pdxmolab/pdx_ppmp/tools:ppmp-fastqc-0.11.5-1
+  registry = 513257557546.dkr.ecr.us-east-1.amazonaws.com
+repository = foo/bar/tools
+       tag = cool-stuff-0.11.5-1
+     image = foo/bar/tools:cool-stuff-0.11.5-1
 ```
 
 Note that slashes '/' in a repository's name have no semantic meaning.
@@ -595,9 +660,22 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 
 ## Who/what uses Docker?
 
-- [Google CoLab](https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03) - launches a CoLab notebook
-- [MyBinder](https://mybinder.org/v2/gh/rwcitek/MyBinder.demo/main?labpath=%2FRegular.Expressions%2Fwordle.bash.ipynb) - launches a Jupyter notebook
-- [dsub](https://github.com/DataBiosphere/dsub)
+- [Google CoLab]( https://colab.research.google.com/drive/1zlsj8PKU2zj8Prx8W-nyHUd6b0UDtJ03 ) - launches a CoLab notebook
+- [MyBinder]( https://mybinder.org/v2/gh/rwcitek/MyBinder.demo/main?labpath=%2FRegular.Expressions%2Fwordle.bash.ipynb ) - launches a Jupyter notebook
+- [GitHub]( https://github.com/features/codespaces )
+- [dsub]( https://github.com/DataBiosphere/dsub )
+
+---
+
+## dsub
+
+---
+
+## dsub
+
+Variant of [`qsub`]( https://en.wikipedia.org/wiki/Qsub )
+
+> qsub is an IEEE Std 1003.1-2008 Unix command for submitting jobs to a job scheduler, usually in cluster or grid computing.
 
 ---
 
@@ -617,6 +695,11 @@ Note that slashes '/' in a repository's name have no semantic meaning.
 ---
 
 ## Best Practices
+
+---
+
+## Best Practices
+
 DO:
 - create snapshots (commit) often while working in an interactive container
 - turn your history from the interactive container into a Dockerfile
@@ -626,6 +709,7 @@ DO:
 ---
 
 ## Best Practices
+
 DO NOT:
 - push snapshot images to registry 
   - instead: build with a Dockerfile
@@ -671,9 +755,19 @@ DO NOT:
 
 ## Acknowledgments
 
-- Markdown initially written with [StackEdit](https://stackedit.io/)
-- Diagrams with [DrawIO](https://www.draw.io/)
-- This presentation in [GitHub Pages](https://rwcitek.github.io/docker/slides/DockerGentleIntro/)
-- This project repo in [GitHub](https://github.com/rwcitek/docker/blob/gh-pages/_slides/DockerGentleIntro.md)
+- Markdown initially written with [StackEdit]( https://stackedit.io/ )
+- Diagrams with [DrawIO]( https://www.draw.io/ )
+- This presentation in [GitHub Pages]( https://rwcitek.github.io/docker/slides/DockerGentleIntro/ )
+- This project repo in [GitHub]( https://github.com/rwcitek/docker/blob/gh-pages/_slides/DockerGentleIntro.md )
+
+---
+
+# Thanks!
+
+Presentation URL:
+
+<img src="../../public/docker.qrcode.png" alt="slide" width="600"/>
+
+https://rwcitek.github.io/docker/slides/DockerGentleIntro/
 
 
