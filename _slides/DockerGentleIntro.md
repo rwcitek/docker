@@ -766,7 +766,7 @@ DO NOT:
 
 Presentation URL:
 
-<img src="../../public/docker.qrcode.png" alt="slide" width="600"/>
+<img src="../../public/docker.qrcode.png" alt="slide" width="400"/>
 
 https://rwcitek.github.io/docker/slides/DockerGentleIntro/
 
