@@ -298,7 +298,7 @@ Apache2: [http://localhost:8081/](http://penguin.linux.test:8081/)
 <span class="fragment">Resource Isolation</span>
 
 <span class="fragment">
-  <img src="https://sd.keepcalms.com/i/keep-calm-what-happens-in-vegas-stays-in-vegas-18.png" alt="vegas" width="400"/>
+  <img src="../../public/WHIVSIVCards.png" alt="calm vegas" width="400"/>
 </span>
 
 ---
